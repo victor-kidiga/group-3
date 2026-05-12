@@ -10,7 +10,7 @@ const Cars = () => {
 
   useEffect(() => {
     // Fetch car data from the API
-    //In a real application, you would replace the URL with your actual API endpoint. The fetched data is then stored in the state using setCars.
+    //In a real application, ynou would replace the URL with your actual API endpoint. The fetched data is then stored in the state using setCars.
 
     fetch('https://api.example.com/cars')
       .then(response => response.json())
