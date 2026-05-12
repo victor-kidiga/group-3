@@ -1,0 +1,164 @@
+{
+  "cars": [
+    {
+      "id": 1,
+      "name": "BMW M4",
+      "brand": "BMW",
+      "price": 85000,
+      "year": 2023,
+      "image": "https://images.unsplash.com/photo-1555215695-3004980ad54e"
+    },
+    {
+      "id": 2,
+      "name": "Mercedes C63",
+      "brand": "Mercedes",
+      "price": 92000,
+      "year": 2022,
+      "image": "https://images.unsplash.com/photo-1503376780353-7e6692767b70"
+    },
+    {
+      "id": 3,
+      "name": "Audi R8",
+      "brand": "Audi",
+      "price": 140000,
+      "year": 2024,
+      "image": "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7"
+    },
+    {
+      "id": 4,
+      "name": "Toyota Supra",
+      "brand": "Toyota",
+      "price": 67000,
+      "year": 2021,
+      "image": "https://images.unsplash.com/photo-1544636331-e26879cd4d9b"
+    },
+    {
+      "id": 5,
+      "name": "Ford Mustang GT",
+      "brand": "Ford",
+      "price": 73000,
+      "year": 2023,
+      "image": "https://images.unsplash.com/photo-1494905998402-395d579af36f"
+    },
+    {
+      "id": 6,
+      "name": "Chevrolet Camaro",
+      "brand": "Chevrolet",
+      "price": 69000,
+      "year": 2022,
+      "image": "https://images.unsplash.com/photo-1511919884226-fd3cad34687c"
+    },
+    {
+      "id": 7,
+      "name": "Lamborghini Huracan",
+      "brand": "Lamborghini",
+      "price": 280000,
+      "year": 2024,
+      "image": "https://images.unsplash.com/photo-1502877338535-766e1452684a"
+    },
+    {
+      "id": 8,
+      "name": "Ferrari F8",
+      "brand": "Ferrari",
+      "price": 350000,
+      "year": 2023,
+      "image": "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d"
+    },
+    {
+      "id": 9,
+      "name": "Porsche 911",
+      "brand": "Porsche",
+      "price": 160000,
+      "year": 2022,
+      "image": "https://images.unsplash.com/photo-1502161254066-6c74afbf07aa"
+    },
+    {
+      "id": 10,
+      "name": "Tesla Model S",
+      "brand": "Tesla",
+      "price": 98000,
+      "year": 2024,
+      "image": "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b"
+    },
+    {
+      "id": 11,
+      "name": "Nissan GTR",
+      "brand": "Nissan",
+      "price": 125000,
+      "year": 2023,
+      "image": "https://images.unsplash.com/photo-1489824904134-891ab64532f1"
+    },
+    {
+      "id": 12,
+      "name": "Honda Civic Type R",
+      "brand": "Honda",
+      "price": 52000,
+      "year": 2022,
+      "image": "https://images.unsplash.com/photo-1493238792000-8113da705763"
+    },
+    {
+      "id": 13,
+      "name": "Mazda RX-7",
+      "brand": "Mazda",
+      "price": 78000,
+      "year": 2021,
+      "image": "https://images.unsplash.com/photo-1503376780353-7e6692767b70"
+    },
+    {
+      "id": 14,
+      "name": "McLaren 720S",
+      "brand": "McLaren",
+      "price": 310000,
+      "year": 2024,
+      "image": "https://images.unsplash.com/photo-1517524206127-48bbd363f3d7"
+    },
+    {
+      "id": 15,
+      "name": "Bugatti Chiron",
+      "brand": "Bugatti",
+      "price": 3000000,
+      "year": 2023,
+      "image": "https://images.unsplash.com/photo-1502877338535-766e1452684a"
+    },
+    {
+      "id": 16,
+      "name": "Jeep Wrangler",
+      "brand": "Jeep",
+      "price": 58000,
+      "year": 2022,
+      "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
+    },
+    {
+      "id": 17,
+      "name": "Range Rover Sport",
+      "brand": "Land Rover",
+      "price": 135000,
+      "year": 2024,
+      "image": "https://images.unsplash.com/photo-1504215680853-026ed2a45def"
+    },
+    {
+      "id": 18,
+      "name": "Subaru WRX STI",
+      "brand": "Subaru",
+      "price": 61000,
+      "year": 2023,
+      "image": "https://images.unsplash.com/photo-1549924231-f129b911e442"
+    },
+    {
+      "id": 19,
+      "name": "Volkswagen Golf R",
+      "brand": "Volkswagen",
+      "price": 48000,
+      "year": 2022,
+      "image": "https://images.unsplash.com/photo-1511919884226-fd3cad34687c"
+    },
+    {
+      "id": 20,
+      "name": "Hyundai Elantra N",
+      "brand": "Hyundai",
+      "price": 42000,
+      "year": 2024,
+      "image": "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7"
+    }
+  ]
+}
