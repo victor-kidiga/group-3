@@ -1,7 +1,3 @@
-// src/components/CarForm.jsx
-
-import React from "react";
-
 const CarForm = ({
   formData,
   setFormData,
@@ -62,6 +58,13 @@ const CarForm = ({
         value={formData.image}
         onChange={handleChange}
         required
+      />
+
+      <textarea
+        name="description"
+        placeholder="Description"
+        value={formData.description}
+        onChange={handleChange}
       />
 
       <button type="submit">

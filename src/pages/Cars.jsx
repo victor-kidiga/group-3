@@ -1,5 +1,4 @@
-
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate} from 'react-router-dom';
 import CarCard from '../components/CarCard';
 import SearchBar from '../components/SearchBar';
@@ -28,9 +27,9 @@ const Cars = () => {
 
   const filteredCars = cars.filter(car => {
     const brand = (car.brand || '').toLowerCase();
-    const model = (car.model || '').toLowerCase();
+    const name = (car.name || '').toLowerCase();
     const lowerSearchTerm = searchTerm.toLowerCase();
-    return brand.includes(lowerSearchTerm) || model.includes(lowerSearchTerm);  
+    return brand.includes(lowerSearchTerm) || name.includes(lowerSearchTerm);  
   });
 
 
@@ -39,7 +38,7 @@ const Cars = () => {
   const handleDelete = async (id) => {
     try {
       await deleteCar(id);
-      setCars(cars.filter(car => car.id !== id));
+      setCars((currentCars) => currentCars.filter(car => car.id !== id));
     } catch (error) {
       console.error('Error deleting car:', error);
     }
@@ -70,4 +69,3 @@ const Cars = () => {
  );};
 
 export default Cars;
-
