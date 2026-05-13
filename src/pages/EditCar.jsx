@@ -41,11 +41,11 @@ function EditCar() {
     <div className="page-container">
       <h1>Edit Car</h1>
       <CarForm
-        formData={formData}
-        setFormData={setFormData}
-        handleSubmit={handleSubmit}
-        buttonText="Update Car"
-      />
+  formData={formData}
+  setFormData={setFormData}
+  handleSubmit={handleSubmit}
+  buttonText="Update Car"
+/>
     </div>
   );
 }

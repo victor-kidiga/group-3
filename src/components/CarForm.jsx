@@ -1,41 +1,29 @@
 // src/components/CarForm.jsx
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-const CarForm = ({ onSubmit, initialData = {} }) => {
-  const [car, setCar] = useState({
-    name: "",
-    brand: "",
-    price: "",
-    year: "",
-    image: ""
-  });
-
-  useEffect(() => {
-    if (initialData) {
-      setCar(initialData);
-    }
-  }, [initialData]);
+const CarForm = ({
+  formData,
+  setFormData,
+  handleSubmit,
+  buttonText
+}) => {
 
   const handleChange = (e) => {
-    setCar({
-      ...car,
+    setFormData({
+      ...formData,
       [e.target.name]: e.target.value
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSubmit(car);
-  };
-
   return (
     <form onSubmit={handleSubmit} className="car-form">
+
       <input
         type="text"
         name="name"
         placeholder="Car Name"
-        value={car.name}
+        value={formData.name}
         onChange={handleChange}
         required
       />
@@ -44,7 +32,7 @@ const CarForm = ({ onSubmit, initialData = {} }) => {
         type="text"
         name="brand"
         placeholder="Brand"
-        value={car.brand}
+        value={formData.brand}
         onChange={handleChange}
         required
       />
@@ -53,7 +41,7 @@ const CarForm = ({ onSubmit, initialData = {} }) => {
         type="number"
         name="price"
         placeholder="Price"
-        value={car.price}
+        value={formData.price}
         onChange={handleChange}
         required
       />
@@ -62,7 +50,7 @@ const CarForm = ({ onSubmit, initialData = {} }) => {
         type="number"
         name="year"
         placeholder="Year"
-        value={car.year}
+        value={formData.year}
         onChange={handleChange}
         required
       />
@@ -71,14 +59,15 @@ const CarForm = ({ onSubmit, initialData = {} }) => {
         type="text"
         name="image"
         placeholder="Image URL"
-        value={car.image}
+        value={formData.image}
         onChange={handleChange}
         required
       />
 
       <button type="submit">
-        Save Car
+        {buttonText}
       </button>
+
     </form>
   );
 };

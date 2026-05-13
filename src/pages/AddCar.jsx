@@ -31,11 +31,11 @@ function AddCar() {
     <div className="page-container">
       <h1>Add New Car</h1>
       <CarForm
-        formData={formData}
-        setFormData={setFormData}
-        handleSubmit={handleSubmit}
-        buttonText="Add Car"
-      />
+  formData={formData}
+  setFormData={setFormData}
+  handleSubmit={handleSubmit}
+  buttonText="Add Car"
+/>
     </div>
   );
 }
