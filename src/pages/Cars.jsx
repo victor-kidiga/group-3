@@ -11,7 +11,8 @@ const Cars = () => {
   useEffect(() => {
     // Fetch car data from the API
     //In a real application, you would replace the URL with your actual API endpoint. The fetched data is then stored in the state using setCars.
-
+     //replace 'https://api.example.com/cars' with the actual API endpoint you are using to fetch the car data. The fetched data is expected to be an array of car objects, which will be stored in the state variable 'cars' using the setCars function. If there is an error during the fetch operation, it will be caught and logged to the console.
+    
     fetch('https://api.example.com/cars')
       .then(response => response.json())
       .then(data => setCars(data))
