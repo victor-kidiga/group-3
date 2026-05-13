@@ -9,9 +9,11 @@ function EditCar() {
 
   const [formData, setFormData] = useState({
     name: "",
-    brand: "",
     price: "",
-    year: "",
+    modelYear: "",
+    fuelType: "",
+    transmission: "",
+    fuelConsumption: "",
     image: "",
     description: "",
   });
@@ -31,7 +33,7 @@ function EditCar() {
     await updateCar(id, {
       ...formData,
       price: Number(formData.price),
-      year: Number(formData.year),
+      modelYear: Number(formData.modelYear),
     });
 
     navigate("/cars");

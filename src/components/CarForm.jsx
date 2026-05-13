@@ -25,15 +25,6 @@ const CarForm = ({
       />
 
       <input
-        type="text"
-        name="brand"
-        placeholder="Brand"
-        value={formData.brand}
-        onChange={handleChange}
-        required
-      />
-
-      <input
         type="number"
         name="price"
         placeholder="Price"
@@ -44,11 +35,43 @@ const CarForm = ({
 
       <input
         type="number"
-        name="year"
-        placeholder="Year"
-        value={formData.year}
+        name="modelYear"
+        placeholder="Model Year"
+        value={formData.modelYear || ""}
         onChange={handleChange}
         required
+      />
+
+      <select
+        name="fuelType"
+        value={formData.fuelType || ""}
+        onChange={handleChange}
+        required
+      >
+        <option value="">Select Fuel Type</option>
+        <option value="Petrol">Petrol</option>
+        <option value="Diesel">Diesel</option>
+        <option value="Electric">Electric</option>
+        <option value="Hybrid">Hybrid</option>
+      </select>
+
+      <select
+        name="transmission"
+        value={formData.transmission || ""}
+        onChange={handleChange}
+        required
+      >
+        <option value="">Select Transmission</option>
+        <option value="Manual">Manual</option>
+        <option value="Automatic">Automatic</option>
+      </select>
+
+      <input
+        type="text"
+        name="fuelConsumption"
+        placeholder="Fuel Consumption"
+        value={formData.fuelConsumption || ""}
+        onChange={handleChange}
       />
 
       <input

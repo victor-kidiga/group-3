@@ -4,7 +4,7 @@ import CarCard from '../components/CarCard';
 import SearchBar from '../components/SearchBar';
 import {getCars,deleteCar} from '../services/api';
 
-const Cars = () => {
+const Cars = ({ isAdmin }) => {
   const [cars, setCars] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -26,16 +26,27 @@ const Cars = () => {
   };
 
   const filteredCars = cars.filter(car => {
-    const brand = (car.brand || '').toLowerCase();
     const name = (car.name || '').toLowerCase();
+    const description = (car.description || '').toLowerCase();
+    const modelYear = String(car.modelYear || '').toLowerCase();
+    const fuelType = (car.fuelType || '').toLowerCase();
+    const transmission = (car.transmission || '').toLowerCase();
     const lowerSearchTerm = searchTerm.toLowerCase();
-    return brand.includes(lowerSearchTerm) || name.includes(lowerSearchTerm);  
+    return (
+      name.includes(lowerSearchTerm) ||
+      description.includes(lowerSearchTerm) ||
+      modelYear.includes(lowerSearchTerm) ||
+      fuelType.includes(lowerSearchTerm) ||
+      transmission.includes(lowerSearchTerm)
+    );  
   });
 
 
   const navigate = useNavigate();
 
   const handleDelete = async (id) => {
+    if (!isAdmin) return;
+
     try {
       await deleteCar(id);
       setCars((currentCars) => currentCars.filter(car => car.id !== id));
@@ -45,7 +56,13 @@ const Cars = () => {
   };
 
   const handleEdit = (id) => {
+    if (!isAdmin) return;
+
     navigate(`/edit-car/${id}`);
+  };
+
+  const handleBuy = (id) => {
+    navigate(`/cars/${id}`);
   };
    
 
@@ -60,6 +77,8 @@ const Cars = () => {
             car={car} 
             onDelete={() => handleDelete(car.id)}
             onEdit={() => handleEdit(car.id)}
+            onBuy={() => handleBuy(car.id)}
+            isAdmin={isAdmin}
           />
   
         ))}
