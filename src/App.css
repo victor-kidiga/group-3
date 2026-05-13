@@ -158,6 +158,83 @@
   font-size: 1.2rem;
 }
 
+.car-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  padding: 24px;
+}
+
+.car-card {
+  background: #151515;
+  border: 1px solid #242424;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: left;
+}
+
+.car-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.car-card-content {
+  padding: 16px;
+}
+
+.car-card-content h2 {
+  color: #ffffff;
+}
+
+.car-card-content p {
+  color: #cccccc;
+  margin-bottom: 8px;
+}
+
+.car-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.car-actions button,
+.car-form button {
+  border: 0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-weight: 700;
+  background: #ff3131;
+  color: #ffffff;
+}
+
+.car-actions .danger-button {
+  background: #3a3a3a;
+}
+
+.car-form {
+  display: grid;
+  gap: 14px;
+  max-width: 520px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+}
+
+.car-form input,
+.car-form textarea {
+  border: 1px solid #d0d0d0;
+  border-radius: 6px;
+  padding: 12px;
+  font: inherit;
+}
+
+.car-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
 @media (max-width: 900px) {
   .hero-section {
     grid-template-columns: 1fr;
