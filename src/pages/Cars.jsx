@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate} from 'react-router-dom';
 import CarCard from '../components/CarCard';
 import SearchBar from '../components/SearchBar';
-import {getCars,deleteCar} from '../services/carService';
+import {getCars,deleteCar} from '../services/api';
 
 const Cars = () => {
   const [cars, setCars] = useState([]);
