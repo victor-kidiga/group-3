@@ -1,43 +1,72 @@
-// Cars.jsx 
-//This will be the main component responsible for fetching and displaying the list of cars.it will also manage the state related to the car data and any search filters.
+
 import React, { useState, useEffect } from 'react';
+import { useNavigation } from 'react-router-dom';
 import CarCard from '../components/CarCard';
 import SearchBar from '../components/SearchBar';
+import {getCars,deleteCar} from '../services/carService';
 
 const Cars = () => {
   const [cars, setCars] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    // Fetch car data from the API
-    //In a real application, ynou would replace the URL with your actual API endpoint. The fetched data is then stored in the state using setCars.
+    async function loadCars() {
+      try {
+        const carsData = await getCars();
+        setCars(carsData);
+      } catch (error) {
+        console.error('Error fetching cars:', error);
+      }
+    }
 
-    fetch('https://api.example.com/cars')
-      .then(response => response.json())
-      .then(data => setCars(data))
-      .catch(error => console.error('Error fetching cars:', error));
+    loadCars();
   }, []);
 
   const handleSearch = (term) => {
     setSearchTerm(term);
   };
 
-  const filteredCars = cars.filter(car =>
-    car.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    car.model.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredCars = cars.filter(car => {
+    const brand = (car.brand || '').toLowerCase();
+    const model = (car.model || '').toLowerCase();
+    const lowerSearchTerm = searchTerm.toLowerCase();
+    return brand.includes(lowerSearchTerm) || model.includes(lowerSearchTerm);  
+  });
 
-  return (
+
+  const navigation = useNavigation();
+
+  const handleDelete = async (id) => {
+    try {
+      await deleteCar(id);
+      setCars(cars.filter(car => car.id !== id));
+    } catch (error) {
+      console.error('Error deleting car:', error);
+    }
+  };
+
+  const handleEdit = (id) => {
+    navigation(`/edit/${id}`);
+  };
+   
+
+  return 
     <div> 
       <h1>Available Cars</h1>
       <SearchBar onSearch={handleSearch} />
       <div className="car-list">
         {filteredCars.map(car => (
-          <CarCard key={car.id} car={car} />
+          <CarCard
+           key={car.id}
+            car={car} 
+            onDelete={() => handleDelete(car.id)}
+            onEdit={() => handleEdit(car.id)}
+          />
+  
         ))}
       </div>
     </div>
-  );
+  
 };
 
 export default Cars;
