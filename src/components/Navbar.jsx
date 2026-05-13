@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
-import carLogo from "../assets/hero.png";
 
 function Navbar() {
   return (
     <nav className="navbar">
       <Link to="/" className="logo">
-        <img src={carLogo} alt="MotoGrid" />
+        MotoGrid
       </Link>
 
       <div className="nav-links">
