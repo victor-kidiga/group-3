@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { useNavigation } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import CarCard from '../components/CarCard';
 import SearchBar from '../components/SearchBar';
 import {getCars,deleteCar} from '../services/carService';
@@ -34,7 +34,7 @@ const Cars = () => {
   });
 
 
-  const navigation = useNavigation();
+  const navigate = useNavigate();
 
   const handleDelete = async (id) => {
     try {
@@ -46,11 +46,11 @@ const Cars = () => {
   };
 
   const handleEdit = (id) => {
-    navigation(`/edit/${id}`);
+    navigate(`/edit-car/${id}`);
   };
    
 
-  return 
+  return (
     <div> 
       <h1>Available Cars</h1>
       <SearchBar onSearch={handleSearch} />
@@ -67,7 +67,7 @@ const Cars = () => {
       </div>
     </div>
   
-};
+ );};
 
 export default Cars;
 
