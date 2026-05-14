@@ -15,7 +15,7 @@ function useFetchCars() {
     fetchCars();
   }, []);
 
-  return { cars, setCars, loading };
+  return { cars, setCars, loading};
 }
 
 export default useFetchCars;
