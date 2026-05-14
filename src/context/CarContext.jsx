@@ -20,12 +20,26 @@ export function CarProvider({ children }) {
     }
   }
 
+  function addCar(newCar) {
+    setCars([...cars, newCar]);
+  }
+
+  function deleteCar(id) {
+    setCars(cars.filter(car => car.id !== id));
+  }
+
+  function updateCar(updatedCar) {
+    setCars(cars.map(car =>
+      car.id === updatedCar.id ? updatedCar : car
+    ));
+  }
+
   useEffect(() => {
     fetchCars();
   }, []);
 
   return (
-    <CarContext.Provider value={{ cars, setCars, loading, error, fetchCars }}>
+    <CarContext.Provider value={{ cars, setCars, loading, error, fetchCars, addCar, deleteCar, updateCar }}>
       {children}
     </CarContext.Provider>
   );
