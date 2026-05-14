@@ -47,7 +47,7 @@ function Cars({ isAdmin }) {
     if (!isAdmin) return;
 
     try {
-      await deleteCar(id);
+      await deleteCarRequest(id);
       setCars((currentCars) => currentCars.filter((car) => car.id !== id));
     } catch (error) {
       console.error("Error deleting car:", error);
