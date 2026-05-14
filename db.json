@@ -12,17 +12,6 @@
       "fuelConsumption": "16 km/l"
     },
     {
-      "id": "2",
-      "name": "Honda Civic",
-      "image": "https://cdn.imagin.studio/getImage?customer=img&make=honda&modelFamily=civic&modelYear=2023&angle=23&zoomType=fullscreen&width=900",
-      "price": 3200000,
-      "modelYear": 2023,
-      "description": "A stylish compact car with advanced technology and smooth driving performance.",
-      "transmission": "Manual",
-      "fuelType": "Petrol",
-      "fuelConsumption": "14 km/l"
-    },
-    {
       "id": "3",
       "name": "Ford Ranger",
       "image": "https://cdn.imagin.studio/getImage?customer=img&make=ford&modelFamily=ranger&modelYear=2021&angle=23&zoomType=fullscreen&width=900",
@@ -155,50 +144,6 @@
       "fuelConsumption": "17 km/l"
     },
     {
-      "id": "15",
-      "name": "Jeep Wrangler",
-      "image": "https://cdn.imagin.studio/getImage?customer=img&make=jeep&modelFamily=wrangler&modelYear=2023&angle=23&zoomType=fullscreen&width=900",
-      "price": 7200000,
-      "modelYear": 2023,
-      "description": "An iconic off-road SUV built for adventure and durability.",
-      "transmission": "Manual",
-      "fuelType": "Diesel",
-      "fuelConsumption": "9 km/l"
-    },
-    {
-      "id": "16",
-      "name": "Range Rover Evoque",
-      "image": "https://cdn.imagin.studio/getImage?customer=img&make=land-rover&modelFamily=range-rover-evoque&modelYear=2024&angle=23&zoomType=fullscreen&width=900",
-      "price": 9500000,
-      "modelYear": 2024,
-      "description": "A luxurious compact SUV with premium features and elegant design.",
-      "transmission": "Automatic",
-      "fuelType": "Petrol",
-      "fuelConsumption": "11 km/l"
-    },
-    {
-      "id": "17",
-      "name": "Suzuki Swift",
-      "image": "https://cdn.imagin.studio/getImage?customer=img&make=suzuki&modelFamily=swift&modelYear=2019&angle=23&zoomType=fullscreen&width=900",
-      "price": 1600000,
-      "modelYear": 2019,
-      "description": "A small and economical hatchback ideal for city driving.",
-      "transmission": "Manual",
-      "fuelType": "Petrol",
-      "fuelConsumption": "20 km/l"
-    },
-    {
-      "id": "18",
-      "name": "Tesla Model 3",
-      "image": "https://cdn.imagin.studio/getImage?customer=img&make=tesla&modelFamily=model-3&modelYear=2024&angle=23&zoomType=fullscreen&width=900",
-      "price": 8900000,
-      "modelYear": 2024,
-      "description": "A fully electric sedan with cutting-edge technology and fast acceleration.",
-      "transmission": "Automatic",
-      "fuelType": "Electric",
-      "fuelConsumption": "6 km/kWh"
-    },
-    {
       "id": "19",
       "name": "Mitsubishi Pajero",
       "image": "https://cdn.imagin.studio/getImage?customer=img&make=mitsubishi&modelFamily=pajero&modelYear=2022&angle=23&zoomType=fullscreen&width=900",
@@ -219,6 +164,17 @@
       "transmission": "Manual",
       "fuelType": "Diesel",
       "fuelConsumption": "11 km/l"
+    },
+    {
+      "name": "Audi R8",
+      "price": 9,
+      "modelYear": 3,
+      "fuelType": "Petrol",
+      "transmission": "Automatic",
+      "fuelConsumption": "50km/l",
+      "image": "https://images.unsplash.com/photo-1503376780353-7e6692767b70",
+      "description": "super car",
+      "id": "tBno6n265ME"
     }
   ],
   "settings": {
