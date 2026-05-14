@@ -41,14 +41,14 @@ function Cars({ isAdmin }) {
 
       return matchesSearch && matchesFuel;
     });
-  }, [cars, searchTerm, fuelFilter]);
+  }, [cars, fuelFilter, searchTerm]);
 
   async function handleDelete(id) {
     if (!isAdmin) return;
 
     try {
-      await deleteCarRequest(id);
-      setCars((prevCars) => prevCars.filter((car) => car.id !== id));
+      await deleteCar(id);
+      setCars((currentCars) => currentCars.filter((car) => car.id !== id));
     } catch (error) {
       console.error("Error deleting car:", error);
     }
@@ -150,5 +150,6 @@ function Cars({ isAdmin }) {
     </section>
   );
 }
+
 
 export default Cars;
