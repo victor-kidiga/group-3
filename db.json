@@ -211,25 +211,15 @@
     },
     {
       "id": "20",
-      "name": "Isuzu D-Max",
-      "image": "https://cdn.imagin.studio/getImage?customer=img&make=isuzu&modelFamily=d-max&modelYear=2023&angle=23&zoomType=fullscreen&width=900",
-      "price": 4600000,
-      "modelYear": 2023,
-      "description": "A dependable pickup truck with strong towing and cargo capabilities.",
-      "transmission": "Manual",
+      "name": "Toyota Corolla",
+      "price": 3000000,
+      "modelYear": 2019,
       "fuelType": "Diesel",
-      "fuelConsumption": "11 km/l"
-    },
-    {
-      "name": "Audi R8",
-      "price": 9,
-      "modelYear": 3,
-      "fuelType": "Petrol",
-      "transmission": "Automatic",
-      "fuelConsumption": "50km/l",
-      "image": "https://images.unsplash.com/photo-1503376780353-7e6692767b70",
-      "description": "super car",
-      "id": "tBno6n265ME"
+      "transmission": "Manual",
+      "fuelConsumption": "16 km/l",
+      "image": "https://cdn.imagin.studio/getImage?customer=img&make=toyota&modelFamily=corolla&modelYear=2022&angle=23&zoomType=fullscreen&width=900",
+      "description": "basic car",
+      "id": "NF2Oqs7r7Hk"
     }
   ],
   "settings": {
