@@ -29,3 +29,15 @@ test("renders car image with correct alt text", () => {
   const image = screen.getByAltText("Toyota Corolla");
   expect(image).toBeInTheDocument();
 });
+
+test("renders Buy button", () => {
+  renderCarCard();
+  expect(screen.getByText("Buy")).toBeInTheDocument();
+});
+
+test("calls onBuy when Buy button is clicked", () => {
+  const mockBuy = vi.fn();
+  renderCarCard({ onBuy: mockBuy });
+  fireEvent.click(screen.getByText("Buy"));
+  expect(mockBuy).toHaveBeenCalledTimes(1);
+});
