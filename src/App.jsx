@@ -45,38 +45,41 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navbar
-        isAdmin={isAdmin}
-        onAdminLogin={handleAdminLogin}
-        onAdminLogout={handleAdminLogout}
-        theme={theme}
-        onToggleTheme={toggleTheme}
-      />
+      <div className="admin-shell">
+        <Navbar
+          isAdmin={isAdmin}
+          onAdminLogout={handleAdminLogout}
+          theme={theme}
+          onToggleTheme={toggleTheme}
+        />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/cars" element={<Cars isAdmin={isAdmin} />} />
-        <Route path="/cars/:id" element={<CarDetails />} />
-        <Route
-          path="/admin"
-          element={
-            <AdminLogin
-              isAdmin={isAdmin}
-              onLogin={handleAdminLogin}
-              onLogout={handleAdminLogout}
+        <main className="workspace">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/cars" element={<Cars isAdmin={isAdmin} />} />
+            <Route path="/cars/:id" element={<CarDetails isAdmin={isAdmin} />} />
+            <Route
+              path="/admin"
+              element={
+                <AdminLogin
+                  isAdmin={isAdmin}
+                  onLogin={handleAdminLogin}
+                  onLogout={handleAdminLogout}
+                />
+              }
             />
-          }
-        />
-        <Route
-          path="/add-car"
-          element={isAdmin ? <AddCar /> : <Navigate to="/cars" replace />}
-        />
-        <Route
-          path="/edit-car/:id"
-          element={isAdmin ? <EditCar /> : <Navigate to="/cars" replace />}
-        />
-        <Route path="*" element={<Navigate to="/admin" replace />} />
-      </Routes>
+            <Route
+              path="/add-car"
+              element={isAdmin ? <AddCar /> : <Navigate to="/admin" replace />}
+            />
+            <Route
+              path="/edit-car/:id"
+              element={isAdmin ? <EditCar /> : <Navigate to="/admin" replace />}
+            />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </main>
+      </div>
     </BrowserRouter>
   );
 }
