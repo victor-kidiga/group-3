@@ -1,12 +1,13 @@
-import { useState, useEffect } from 'react';
-import { useNavigate} from 'react-router-dom';
-import CarCard from '../components/CarCard';
-import SearchBar from '../components/SearchBar';
-import {getCars,deleteCar} from '../service/api';
+import { useEffect, useMemo, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import SearchBar from "../components/SearchBar";
+import { deleteCar, getCars } from "../services/api";
 
-const Cars = ({ isAdmin }) => {
+function Cars({ isAdmin }) {
   const [cars, setCars] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
+  const [fuelFilter, setFuelFilter] = useState("all");
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function loadCars() {
@@ -14,77 +15,139 @@ const Cars = ({ isAdmin }) => {
         const carsData = await getCars();
         setCars(carsData);
       } catch (error) {
-        console.error('Error fetching cars:', error);
+        console.error("Error fetching cars:", error);
       }
     }
 
     loadCars();
   }, []);
 
-  const handleSearch = (term) => {
-    setSearchTerm(term);
-  };
-
-  const filteredCars = cars.filter(car => {
-    const name = (car.name || '').toLowerCase();
-    const description = (car.description || '').toLowerCase();
-    const modelYear = String(car.modelYear || '').toLowerCase();
-    const fuelType = (car.fuelType || '').toLowerCase();
-    const transmission = (car.transmission || '').toLowerCase();
+  const filteredCars = useMemo(() => {
     const lowerSearchTerm = searchTerm.toLowerCase();
-    return (
-      name.includes(lowerSearchTerm) ||
-      description.includes(lowerSearchTerm) ||
-      modelYear.includes(lowerSearchTerm) ||
-      fuelType.includes(lowerSearchTerm) ||
-      transmission.includes(lowerSearchTerm)
-    );  
-  });
 
+    return cars.filter((car) => {
+      const matchesSearch = [
+        car.name,
+        car.description,
+        car.modelYear,
+        car.fuelType,
+        car.transmission,
+      ]
+        .join(" ")
+        .toLowerCase()
+        .includes(lowerSearchTerm);
 
-  const navigate = useNavigate();
+      const matchesFuel = fuelFilter === "all" || car.fuelType === fuelFilter;
 
-  const handleDelete = async (id) => {
+      return matchesSearch && matchesFuel;
+    });
+  }, [cars, searchTerm, fuelFilter]);
+  async function deleteCar(id) {
     if (!isAdmin) return;
-
     try {
       await deleteCar(id);
-      setCars((currentCars) => currentCars.filter(car => car.id !== id));
+      setCars((prevCars) => prevCars.filter((car) => car.id !== id));
     } catch (error) {
-      console.error('Error deleting car:', error);
+      console.error("Error deleting car:", error);
     }
-  };
 
-  const handleEdit = (id) => {
-    if (!isAdmin) return;
-
-    navigate(`/edit-car/${id}`);
-  };
-
-  const handleBuy = (id) => {
-    navigate(`/cars/${id}`);
-  };
-   
-
+  }
   return (
-    <div> 
-      <h1>Available Cars</h1>
-      <SearchBar onSearch={handleSearch} />
-      <div className="car-list">
-        {filteredCars.map(car => (
-          <CarCard
-           key={car.id}
-            car={car} 
-            onDelete={() => handleDelete(car.id)}
-            onEdit={() => handleEdit(car.id)}
-            onBuy={() => handleBuy(car.id)}
-            isAdmin={isAdmin}
-          />
-  
-        ))}
-      </div>
-    </div>
-  
- );};
+    <section className="inventory-page">
+      <div className="page-title-row">
+        <div>
+          <p className="eyebrow">Cars</p>
+          <h1>Product inventory</h1>
+          <p>Search, inspect, add, edit, and remove persisted product records.</p>
+        </div>
 
+        <Link to="/add-car" className="primary-action">
+          Add New Car
+        </Link>
+      </div>
+
+      <section className="panel">
+        <div className="inventory-toolbar">
+          <SearchBar onSearch={setSearchTerm} />
+          <select
+            value={fuelFilter}
+            onChange={(event) => setFuelFilter(event.target.value)}
+            aria-label="Filter by fuel type"
+          >
+            <option value="all">All fuel types</option>
+            <option value="Petrol">Petrol</option>
+            <option value="Diesel">Diesel</option>
+            <option value="Electric">Electric</option>
+            <option value="Hybrid">Hybrid</option>
+          </select>
+        </div>
+
+        <div className="table-wrap">
+          <table className="product-table">
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Model</th>
+                <th>Price</th>
+                <th>Fuel</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredCars.map((car) => (
+                <tr key={car.id}>
+                  <td data-label="Image">
+                    <img src={car.image} alt={car.name} className="table-image" />
+                  </td>
+                  <td data-label="Name">
+                    <strong>{car.name}</strong>
+                    <span>{car.transmission}</span>
+                  </td>
+                  <td data-label="Model">{car.modelYear || car.year}</td>
+                  <td data-label="Price">KSh {Number(car.price).toLocaleString()}</td>
+                  <td data-label="Fuel">{car.fuelType}</td>
+                  <td data-label="Status">
+                    <span className="status-pill">Active</span>
+                  </td>
+                  <td data-label="Actions">
+                    <div className="row-actions">
+                      <button type="button" onClick={() => navigate(`/cars/${car.id}`)}>
+                        View
+                      </button>
+                      {isAdmin && (
+                        <>
+                          <button type="button" onClick={() => navigate(`/edit-car/${car.id}`)}>
+                            Edit
+                          </button>
+                          <button
+                            type="button"
+                            className="danger-action"
+                            onClick={() => handleDelete(car.id)}
+                          >
+                            Delete
+                          </button>
+                        </>
+                      )}
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        {filteredCars.length === 0 && (
+          <div className="empty-state">
+            <h2>No cars found</h2>
+            <p>Try a different search term or fuel filter.</p>
+          </div>
+        )}
+      </section>
+    </section>
+  );
+}
+
+export default Cars;
 export default Cars;
