@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
-import { deleteCar, getCars } from "../services/api";
+import { deleteCar as deleteCarRequest, getCars } from "../services/api";
 
 function Cars({ isAdmin }) {
   const [cars, setCars] = useState([]);
