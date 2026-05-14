@@ -4,7 +4,7 @@
       "id": "1",
       "name": "Toyota Corolla",
       "image": "https://cdn.imagin.studio/getImage?customer=img&make=toyota&modelFamily=corolla&modelYear=2022&angle=23&zoomType=fullscreen&width=900",
-      "price": 2500000,
+      "price": 3500000,
       "modelYear": 2022,
       "description": "A reliable and fuel-efficient sedan perfect for daily commuting and family use.",
       "transmission": "Automatic",
@@ -210,7 +210,6 @@
       "fuelConsumption": "10 km/l"
     },
     {
-      "id": "20",
       "name": "Toyota Corolla",
       "price": 3000000,
       "modelYear": 2019,

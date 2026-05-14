@@ -1,5 +1,4 @@
- //In this component, we will create a search bar that allows users to input their search criteria. The SearchBar component will receive a prop called onSearch, which is a function that will be called whenever the user types in the search bar. This function will update the search term in the parent component (Cars.jsx) and trigger the filtering of the car list based on the search criteria.
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const SearchBar = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -11,12 +10,15 @@ const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <input
-      type="text"
-      placeholder="Search by make or model..."
-      value={searchTerm}
-      onChange={handleChange}
-    />
+    <div className="search-shell">
+      <span aria-hidden="true">Search</span>
+      <input
+        type="text"
+        placeholder="Search by name, fuel, transmission..."
+        value={searchTerm}
+        onChange={handleChange}
+      />
+    </div>
   );
 };
 

@@ -41,13 +41,16 @@ function EditCar() {
 
   return (
     <div className="page-container">
-      <h1>Edit Car</h1>
+      <header className="page-header">
+        <p>Admin</p>
+        <h1>Edit Car</h1>
+      </header>
       <CarForm
-  formData={formData}
-  setFormData={setFormData}
-  handleSubmit={handleSubmit}
-  buttonText="Update Car"
-/>
+        formData={formData}
+        setFormData={setFormData}
+        handleSubmit={handleSubmit}
+        buttonText="Update Car"
+      />
     </div>
   );
 }
