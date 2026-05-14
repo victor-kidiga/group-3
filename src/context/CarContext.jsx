@@ -6,12 +6,18 @@ const CarContext = createContext();
 export function CarProvider({ children }) {
   const [cars, setCars] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   async function fetchCars() {
-    setLoading(true);
-    const data = await getCars();
-    setCars(data);
-    setLoading(false);
+    try {
+      setLoading(true);
+      const data = await getCars();
+      setCars(data);
+      setLoading(false);
+    } catch (err) {
+      setError("Failed to load cars");
+      setLoading(false);
+    }
   }
 
   useEffect(() => {
@@ -19,7 +25,7 @@ export function CarProvider({ children }) {
   }, []);
 
   return (
-    <CarContext.Provider value={{ cars, setCars, loading, fetchCars }}>
+    <CarContext.Provider value={{ cars, setCars, loading, error, fetchCars }}>
       {children}
     </CarContext.Provider>
   );
