@@ -3,11 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
 import { deleteCar, getCars } from "../services/api";
 
-import React, { useState, useEffect } from 'react';
-import { useNavigate} from 'react-router-dom';
-import CarCard from '../components/CarCard';
-import SearchBar from '../components/SearchBar';
-import {getCars,deleteCar} from '../service/api';
 
 function Cars({ isAdmin }) {
   const [cars, setCars] = useState([]);
