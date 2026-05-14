@@ -1,7 +1,24 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import FeaturedCar from "../components/FeaturedCar";
+import { getCars } from "../services/api";
 
 function Home() {
+  const [featuredCars, setFeaturedCars] = useState([]);
+
+  useEffect(() => {
+    async function loadFeaturedCars() {
+      try {
+        const cars = await getCars();
+        setFeaturedCars(cars.slice(0, 3));
+      } catch (error) {
+        console.error("Error loading featured cars:", error);
+      }
+    }
+
+    loadFeaturedCars();
+  }, []);
+
   return (
     <main className="home-page">
       <section className="hero-section">
@@ -9,7 +26,7 @@ function Home() {
           <p className="hero-badge">Premium Car Marketplace</p>
 
           <h1>
-            Find Your Dream Car With <span>MotoGrid</span>
+            Curated performance cars for people who love the drive.
           </h1>
 
           <p className="hero-text">
@@ -21,16 +38,16 @@ function Home() {
               Explore Cars
             </Link>
 
-            <Link to="/add-car" className="btn secondary-btn">
-              Add New Car
+            <Link to="/admin" className="btn secondary-btn">
+              List a Car
             </Link>
           </div>
         </div>
 
         <div className="hero-image">
           <img
-            src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=900"
-            alt="Luxury sports car"
+            src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=900"
+            alt="Toyota Corolla"
           />
         </div>
       </section>
@@ -59,26 +76,9 @@ function Home() {
         </div>
 
         <div className="featured-grid">
-          <FeaturedCar
-            image="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=900"
-            name="Chevrolet Camaro"
-            price="Ksh 8,500,000"
-            description="Sporty, powerful, and perfect for speed lovers."
-          />
-
-          <FeaturedCar
-            image="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=900"
-            name="Porsche 911"
-            price="Ksh 18,000,000"
-            description="A premium sports car with timeless performance."
-          />
-
-          <FeaturedCar
-            image="https://images.unsplash.com/photo-1542362567-b07e54358753?w=900"
-            name="Mercedes AMG"
-            price="Ksh 12,500,000"
-            description="Luxury, comfort, and power in one machine."
-          />
+          {featuredCars.map((car) => (
+            <FeaturedCar key={car.id} car={car} />
+          ))}
         </div>
       </section>
     </main>

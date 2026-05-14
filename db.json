@@ -1,0 +1,229 @@
+{
+  "cars": [
+    {
+      "id": "1",
+      "name": "Toyota Corolla",
+      "image": "https://cdn.imagin.studio/getImage?customer=img&make=toyota&modelFamily=corolla&modelYear=2022&angle=23&zoomType=fullscreen&width=900",
+      "price": 2500000,
+      "modelYear": 2022,
+      "description": "A reliable and fuel-efficient sedan perfect for daily commuting and family use.",
+      "transmission": "Automatic",
+      "fuelType": "Petrol",
+      "fuelConsumption": "16 km/l"
+    },
+    {
+      "id": "2",
+      "name": "Honda Civic",
+      "image": "https://cdn.imagin.studio/getImage?customer=img&make=honda&modelFamily=civic&modelYear=2023&angle=23&zoomType=fullscreen&width=900",
+      "price": 3200000,
+      "modelYear": 2023,
+      "description": "A stylish compact car with advanced technology and smooth driving performance.",
+      "transmission": "Manual",
+      "fuelType": "Petrol",
+      "fuelConsumption": "14 km/l"
+    },
+    {
+      "id": "3",
+      "name": "Ford Ranger",
+      "image": "https://cdn.imagin.studio/getImage?customer=img&make=ford&modelFamily=ranger&modelYear=2021&angle=23&zoomType=fullscreen&width=900",
+      "price": 4800000,
+      "modelYear": 2021,
+      "description": "A powerful pickup truck built for tough terrain and heavy-duty work.",
+      "transmission": "Automatic",
+      "fuelType": "Diesel",
+      "fuelConsumption": "10 km/l"
+    },
+    {
+      "id": "4",
+      "name": "BMW X5",
+      "image": "https://cdn.imagin.studio/getImage?customer=img&make=bmw&modelFamily=x5&modelYear=2024&angle=23&zoomType=fullscreen&width=900",
+      "price": 8500000,
+      "modelYear": 2024,
+      "description": "A luxury SUV with premium comfort, modern safety features, and strong performance.",
+      "transmission": "Automatic",
+      "fuelType": "Diesel",
+      "fuelConsumption": "12 km/l"
+    },
+    {
+      "id": "5",
+      "name": "Mazda Demio",
+      "image": "https://cdn.imagin.studio/getImage?customer=img&make=mazda&modelFamily=demio&modelYear=2020&angle=23&zoomType=fullscreen&width=900",
+      "price": 1800000,
+      "modelYear": 2020,
+      "description": "A compact hatchback known for affordability, reliability, and fuel economy.",
+      "transmission": "Manual",
+      "fuelType": "Petrol",
+      "fuelConsumption": "18 km/l"
+    },
+    {
+      "id": "6",
+      "name": "Mercedes-Benz C-Class",
+      "image": "https://cdn.imagin.studio/getImage?customer=img&make=mercedes-benz&modelFamily=c-class&modelYear=2023&angle=23&zoomType=fullscreen&width=900",
+      "price": 7600000,
+      "modelYear": 2023,
+      "description": "An elegant luxury sedan offering advanced comfort, technology, and performance.",
+      "transmission": "Automatic",
+      "fuelType": "Petrol",
+      "fuelConsumption": "11 km/l"
+    },
+    {
+      "id": "7",
+      "name": "Nissan X-Trail",
+      "image": "https://cdn.imagin.studio/getImage?customer=img&make=nissan&modelFamily=x-trail&modelYear=2022&angle=23&zoomType=fullscreen&width=900",
+      "price": 3900000,
+      "modelYear": 2022,
+      "description": "A spacious SUV suitable for family trips and urban driving.",
+      "transmission": "Automatic",
+      "fuelType": "Diesel",
+      "fuelConsumption": "13 km/l"
+    },
+    {
+      "id": "8",
+      "name": "Subaru Forester",
+      "image": "https://cdn.imagin.studio/getImage?customer=img&make=subaru&modelFamily=forester&modelYear=2021&angle=23&zoomType=fullscreen&width=900",
+      "price": 4100000,
+      "modelYear": 2021,
+      "description": "An all-wheel-drive SUV built for safety and adventure.",
+      "transmission": "Automatic",
+      "fuelType": "Petrol",
+      "fuelConsumption": "12 km/l"
+    },
+    {
+      "id": "9",
+      "name": "Audi A4",
+      "image": "https://cdn.imagin.studio/getImage?customer=img&make=audi&modelFamily=a4&modelYear=2023&angle=23&zoomType=fullscreen&width=900",
+      "price": 6800000,
+      "modelYear": 2023,
+      "description": "A premium sedan with sleek styling and advanced technology.",
+      "transmission": "Automatic",
+      "fuelType": "Petrol",
+      "fuelConsumption": "10 km/l"
+    },
+    {
+      "id": "10",
+      "name": "Volkswagen Golf",
+      "image": "https://cdn.imagin.studio/getImage?customer=img&make=volkswagen&modelFamily=golf&modelYear=2020&angle=23&zoomType=fullscreen&width=900",
+      "price": 2900000,
+      "modelYear": 2020,
+      "description": "A sporty hatchback with excellent handling and comfort.",
+      "transmission": "Manual",
+      "fuelType": "Petrol",
+      "fuelConsumption": "15 km/l"
+    },
+    {
+      "id": "11",
+      "name": "Toyota Land Cruiser",
+      "image": "https://cdn.imagin.studio/getImage?customer=img&make=toyota&modelFamily=land-cruiser&modelYear=2024&angle=23&zoomType=fullscreen&width=900",
+      "price": 12000000,
+      "modelYear": 2024,
+      "description": "A rugged SUV designed for luxury and off-road capability.",
+      "transmission": "Automatic",
+      "fuelType": "Diesel",
+      "fuelConsumption": "8 km/l"
+    },
+    {
+      "id": "12",
+      "name": "Hyundai Tucson",
+      "image": "https://cdn.imagin.studio/getImage?customer=img&make=hyundai&modelFamily=tucson&modelYear=2022&angle=23&zoomType=fullscreen&width=900",
+      "price": 3500000,
+      "modelYear": 2022,
+      "description": "A modern crossover SUV with comfort and smart technology.",
+      "transmission": "Automatic",
+      "fuelType": "Petrol",
+      "fuelConsumption": "14 km/l"
+    },
+    {
+      "id": "13",
+      "name": "Kia Sportage",
+      "image": "https://cdn.imagin.studio/getImage?customer=img&make=kia&modelFamily=sportage&modelYear=2021&angle=23&zoomType=fullscreen&width=900",
+      "price": 3400000,
+      "modelYear": 2021,
+      "description": "A stylish SUV with a comfortable interior and smooth ride.",
+      "transmission": "Automatic",
+      "fuelType": "Diesel",
+      "fuelConsumption": "13 km/l"
+    },
+    {
+      "id": "14",
+      "name": "Peugeot 308",
+      "image": "https://cdn.imagin.studio/getImage?customer=img&make=peugeot&modelFamily=308&modelYear=2020&angle=23&zoomType=fullscreen&width=900",
+      "price": 2700000,
+      "modelYear": 2020,
+      "description": "A compact European hatchback with refined styling and efficiency.",
+      "transmission": "Manual",
+      "fuelType": "Petrol",
+      "fuelConsumption": "17 km/l"
+    },
+    {
+      "id": "15",
+      "name": "Jeep Wrangler",
+      "image": "https://cdn.imagin.studio/getImage?customer=img&make=jeep&modelFamily=wrangler&modelYear=2023&angle=23&zoomType=fullscreen&width=900",
+      "price": 7200000,
+      "modelYear": 2023,
+      "description": "An iconic off-road SUV built for adventure and durability.",
+      "transmission": "Manual",
+      "fuelType": "Diesel",
+      "fuelConsumption": "9 km/l"
+    },
+    {
+      "id": "16",
+      "name": "Range Rover Evoque",
+      "image": "https://cdn.imagin.studio/getImage?customer=img&make=land-rover&modelFamily=range-rover-evoque&modelYear=2024&angle=23&zoomType=fullscreen&width=900",
+      "price": 9500000,
+      "modelYear": 2024,
+      "description": "A luxurious compact SUV with premium features and elegant design.",
+      "transmission": "Automatic",
+      "fuelType": "Petrol",
+      "fuelConsumption": "11 km/l"
+    },
+    {
+      "id": "17",
+      "name": "Suzuki Swift",
+      "image": "https://cdn.imagin.studio/getImage?customer=img&make=suzuki&modelFamily=swift&modelYear=2019&angle=23&zoomType=fullscreen&width=900",
+      "price": 1600000,
+      "modelYear": 2019,
+      "description": "A small and economical hatchback ideal for city driving.",
+      "transmission": "Manual",
+      "fuelType": "Petrol",
+      "fuelConsumption": "20 km/l"
+    },
+    {
+      "id": "18",
+      "name": "Tesla Model 3",
+      "image": "https://cdn.imagin.studio/getImage?customer=img&make=tesla&modelFamily=model-3&modelYear=2024&angle=23&zoomType=fullscreen&width=900",
+      "price": 8900000,
+      "modelYear": 2024,
+      "description": "A fully electric sedan with cutting-edge technology and fast acceleration.",
+      "transmission": "Automatic",
+      "fuelType": "Electric",
+      "fuelConsumption": "6 km/kWh"
+    },
+    {
+      "id": "19",
+      "name": "Mitsubishi Pajero",
+      "image": "https://cdn.imagin.studio/getImage?customer=img&make=mitsubishi&modelFamily=pajero&modelYear=2022&angle=23&zoomType=fullscreen&width=900",
+      "price": 5300000,
+      "modelYear": 2022,
+      "description": "A durable SUV suitable for long-distance travel and rough roads.",
+      "transmission": "Automatic",
+      "fuelType": "Diesel",
+      "fuelConsumption": "10 km/l"
+    },
+    {
+      "id": "20",
+      "name": "Isuzu D-Max",
+      "image": "https://cdn.imagin.studio/getImage?customer=img&make=isuzu&modelFamily=d-max&modelYear=2023&angle=23&zoomType=fullscreen&width=900",
+      "price": 4600000,
+      "modelYear": 2023,
+      "description": "A dependable pickup truck with strong towing and cargo capabilities.",
+      "transmission": "Manual",
+      "fuelType": "Diesel",
+      "fuelConsumption": "11 km/l"
+    }
+  ],
+  "settings": {
+    "salesPhone": "+254 116196302",
+    "salesEmail": "sales@motogrid.com"
+  },
+  "$schema": "./node_modules/json-server/schema.json"
+}
