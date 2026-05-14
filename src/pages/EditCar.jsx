@@ -1,0 +1,58 @@
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import CarForm from "../components/CarForm";
+import { getCar, updateCar } from "../services/api";
+
+function EditCar() {
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    name: "",
+    price: "",
+    modelYear: "",
+    fuelType: "",
+    transmission: "",
+    fuelConsumption: "",
+    image: "",
+    description: "",
+  });
+
+  useEffect(() => {
+    async function loadCar() {
+      const car = await getCar(id);
+      setFormData(car);
+    }
+
+    loadCar();
+  }, [id]);
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    await updateCar(id, {
+      ...formData,
+      price: Number(formData.price),
+      modelYear: Number(formData.modelYear),
+    });
+
+    navigate("/cars");
+  }
+
+  return (
+    <div className="page-container">
+      <header className="page-header">
+        <p>Admin</p>
+        <h1>Edit Car</h1>
+      </header>
+      <CarForm
+        formData={formData}
+        setFormData={setFormData}
+        handleSubmit={handleSubmit}
+        buttonText="Update Car"
+      />
+    </div>
+  );
+}
+
+export default EditCar;
