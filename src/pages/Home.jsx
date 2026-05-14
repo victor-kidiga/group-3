@@ -26,7 +26,7 @@ function Home() {
           <p className="hero-badge">Premium Car Marketplace</p>
 
           <h1>
-            Find Your Dream Car With <span>MotoGrid</span>
+            Curated performance cars for people who love the drive.
           </h1>
 
           <p className="hero-text">
@@ -38,6 +38,9 @@ function Home() {
               Explore Cars
             </Link>
 
+            <Link to="/admin" className="btn secondary-btn">
+              List a Car
+            </Link>
           </div>
         </div>
 
