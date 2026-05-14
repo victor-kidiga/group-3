@@ -1,101 +1,130 @@
-const CarForm = ({
-  formData,
-  setFormData,
-  handleSubmit,
-  buttonText
-}) => {
-
-  const handleChange = (e) => {
+function CarForm({ formData, setFormData, handleSubmit, buttonText }) {
+  function handleChange(event) {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [event.target.name]: event.target.value,
     });
-  };
+  }
 
   return (
     <form onSubmit={handleSubmit} className="car-form">
+      <div className="form-section-title">
+        <h2>Car Information</h2>
+        <p>Fill in the product details that customers and administrators will use.</p>
+      </div>
 
-      <input
-        type="text"
-        name="name"
-        placeholder="Car Name"
-        value={formData.name}
-        onChange={handleChange}
-        required
-      />
+      <div className="form-grid">
+        <label>
+          Car Name
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter car name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </label>
 
-      <input
-        type="number"
-        name="price"
-        placeholder="Price"
-        value={formData.price}
-        onChange={handleChange}
-        required
-      />
+        <label>
+          Price
+          <input
+            type="number"
+            name="price"
+            placeholder="Enter price"
+            value={formData.price}
+            onChange={handleChange}
+            required
+          />
+        </label>
 
-      <input
-        type="number"
-        name="modelYear"
-        placeholder="Model Year"
-        value={formData.modelYear || ""}
-        onChange={handleChange}
-        required
-      />
+        <label>
+          Model Year
+          <input
+            type="number"
+            name="modelYear"
+            placeholder="Select year"
+            value={formData.modelYear || ""}
+            onChange={handleChange}
+            required
+          />
+        </label>
 
-      <select
-        name="fuelType"
-        value={formData.fuelType || ""}
-        onChange={handleChange}
-        required
-      >
-        <option value="">Select Fuel Type</option>
-        <option value="Petrol">Petrol</option>
-        <option value="Diesel">Diesel</option>
-        <option value="Electric">Electric</option>
-        <option value="Hybrid">Hybrid</option>
-      </select>
+        <label>
+          Fuel Type
+          <select
+            name="fuelType"
+            value={formData.fuelType || ""}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select fuel type</option>
+            <option value="Petrol">Petrol</option>
+            <option value="Diesel">Diesel</option>
+            <option value="Electric">Electric</option>
+            <option value="Hybrid">Hybrid</option>
+          </select>
+        </label>
 
-      <select
-        name="transmission"
-        value={formData.transmission || ""}
-        onChange={handleChange}
-        required
-      >
-        <option value="">Select Transmission</option>
-        <option value="Manual">Manual</option>
-        <option value="Automatic">Automatic</option>
-      </select>
+        <label>
+          Transmission
+          <select
+            name="transmission"
+            value={formData.transmission || ""}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select transmission</option>
+            <option value="Manual">Manual</option>
+            <option value="Automatic">Automatic</option>
+          </select>
+        </label>
 
-      <input
-        type="text"
-        name="fuelConsumption"
-        placeholder="Fuel Consumption"
-        value={formData.fuelConsumption || ""}
-        onChange={handleChange}
-      />
+        <label>
+          Fuel Consumption
+          <input
+            type="text"
+            name="fuelConsumption"
+            placeholder="Example: 14 km/l"
+            value={formData.fuelConsumption || ""}
+            onChange={handleChange}
+          />
+        </label>
+      </div>
 
-      <input
-        type="text"
-        name="image"
-        placeholder="Image URL"
-        value={formData.image}
-        onChange={handleChange}
-        required
-      />
+      <label className="full-field">
+        Image URL
+        <input
+          type="text"
+          name="image"
+          placeholder="Paste product image URL"
+          value={formData.image}
+          onChange={handleChange}
+          required
+        />
+      </label>
 
-      <textarea
-        name="description"
-        placeholder="Description"
-        value={formData.description}
-        onChange={handleChange}
-      />
+      <label className="upload-card">
+        <span>Images</span>
+        <strong>Paste a hosted image URL above</strong>
+        <small>The live preview and product cards use this image.</small>
+      </label>
 
-      <button type="submit">
-        {buttonText}
-      </button>
+      <label className="full-field">
+        Description
+        <textarea
+          name="description"
+          placeholder="Describe the product"
+          value={formData.description}
+          onChange={handleChange}
+        />
+      </label>
 
+      <div className="form-actions">
+        <button type="submit">{buttonText}</button>
+      </div>
     </form>
   );
-};
+}
 
 export default CarForm;

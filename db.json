@@ -4,7 +4,7 @@
       "id": "1",
       "name": "Toyota Corolla",
       "image": "https://cdn.imagin.studio/getImage?customer=img&make=toyota&modelFamily=corolla&modelYear=2022&angle=23&zoomType=fullscreen&width=900",
-      "price": 3500000,
+      "price": 2500000,
       "modelYear": 2022,
       "description": "A reliable and fuel-efficient sedan perfect for daily commuting and family use.",
       "transmission": "Automatic",
@@ -144,50 +144,6 @@
       "fuelConsumption": "17 km/l"
     },
     {
-      "id": "15",
-      "name": "Jeep Wrangler",
-      "image": "https://cdn.imagin.studio/getImage?customer=img&make=jeep&modelFamily=wrangler&modelYear=2023&angle=23&zoomType=fullscreen&width=900",
-      "price": 7200000,
-      "modelYear": 2023,
-      "description": "An iconic off-road SUV built for adventure and durability.",
-      "transmission": "Manual",
-      "fuelType": "Diesel",
-      "fuelConsumption": "9 km/l"
-    },
-    {
-      "id": "16",
-      "name": "Range Rover Evoque",
-      "image": "https://cdn.imagin.studio/getImage?customer=img&make=land-rover&modelFamily=range-rover-evoque&modelYear=2024&angle=23&zoomType=fullscreen&width=900",
-      "price": 9500000,
-      "modelYear": 2024,
-      "description": "A luxurious compact SUV with premium features and elegant design.",
-      "transmission": "Automatic",
-      "fuelType": "Petrol",
-      "fuelConsumption": "11 km/l"
-    },
-    {
-      "id": "17",
-      "name": "Suzuki Swift",
-      "image": "https://cdn.imagin.studio/getImage?customer=img&make=suzuki&modelFamily=swift&modelYear=2019&angle=23&zoomType=fullscreen&width=900",
-      "price": 1600000,
-      "modelYear": 2019,
-      "description": "A small and economical hatchback ideal for city driving.",
-      "transmission": "Manual",
-      "fuelType": "Petrol",
-      "fuelConsumption": "20 km/l"
-    },
-    {
-      "id": "18",
-      "name": "Tesla Model 3",
-      "image": "https://cdn.imagin.studio/getImage?customer=img&make=tesla&modelFamily=model-3&modelYear=2024&angle=23&zoomType=fullscreen&width=900",
-      "price": 8900000,
-      "modelYear": 2024,
-      "description": "A fully electric sedan with cutting-edge technology and fast acceleration.",
-      "transmission": "Automatic",
-      "fuelType": "Electric",
-      "fuelConsumption": "6 km/kWh"
-    },
-    {
       "id": "19",
       "name": "Mitsubishi Pajero",
       "image": "https://cdn.imagin.studio/getImage?customer=img&make=mitsubishi&modelFamily=pajero&modelYear=2022&angle=23&zoomType=fullscreen&width=900",
@@ -197,6 +153,28 @@
       "transmission": "Automatic",
       "fuelType": "Diesel",
       "fuelConsumption": "10 km/l"
+    },
+    {
+      "id": "20",
+      "name": "Isuzu D-Max",
+      "image": "https://cdn.imagin.studio/getImage?customer=img&make=isuzu&modelFamily=d-max&modelYear=2023&angle=23&zoomType=fullscreen&width=900",
+      "price": 4600000,
+      "modelYear": 2023,
+      "description": "A dependable pickup truck with strong towing and cargo capabilities.",
+      "transmission": "Manual",
+      "fuelType": "Diesel",
+      "fuelConsumption": "11 km/l"
+    },
+    {
+      "name": "Audi R8",
+      "price": 9,
+      "modelYear": 3,
+      "fuelType": "Petrol",
+      "transmission": "Automatic",
+      "fuelConsumption": "50km/l",
+      "image": "https://images.unsplash.com/photo-1503376780353-7e6692767b70",
+      "description": "super car",
+      "id": "tBno6n265ME"
     }
   ],
   "settings": {

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getCar, getSettings } from "../services/api";
 
-function CarDetails() {
+function CarDetails({ isAdmin }) {
   const { id } = useParams();
   const [car, setCar] = useState(null);
   const [error, setError] = useState("");
@@ -90,23 +90,33 @@ function CarDetails() {
           </div>
 
           <div className="buy-panel">
-            <h2>Ready to buy?</h2>
+            <h2>{isAdmin ? "Manage this listing" : "Ready to buy?"}</h2>
             <p>
-              Contact the sales team to confirm availability, arrange viewing,
-              and start the purchase process for this car.
+              {isAdmin
+                ? "Update product details, pricing, and inventory information from the edit screen."
+                : "Contact the sales team to confirm availability, arrange viewing, and start the purchase process for this car."}
             </p>
-            <button
-              type="button"
-              className="buy-action"
-              onClick={() => setShowContact(true)}
-            >
-              Contact Sales
-            </button>
+            <div className="detail-actions">
+              {isAdmin && (
+                <Link to={`/edit-car/${car.id}`} className="buy-action">
+                  Edit Car
+                </Link>
+              )}
+              <button
+                type="button"
+                className="buy-action secondary-action"
+                onClick={() => setShowContact(true)}
+              >
+                Contact Sales
+              </button>
+            </div>
 
             {showContact && (
               <div className="contact-box">
                 <p>Sales phone: {settings.salesPhone}</p>
-                <a href={`tel:${settings.salesPhone}`}>Call now</a>
+                <a href={'tel:${settings.salesPhone}'} target="_blank" rel="noreferrer">
+                  Call now
+                </a>
                 <a
                   href={`https://wa.me/${phoneForLink}?text=Hello,%20I%20am%20interested%20in%20the%20${encodeURIComponent(car.name)}`}
                   target="_blank"
@@ -116,6 +126,8 @@ function CarDetails() {
                 </a>
                 <a
                   href={`mailto:${settings.salesEmail}?subject=Buying%20${encodeURIComponent(car.name)}`}
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   Email sales
                 </a>

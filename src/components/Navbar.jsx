@@ -46,11 +46,7 @@ function Navbar({ isAdmin, onAdminLogout, theme, onToggleTheme }) {
           <img src="/motogrid-logo.png" alt="" />
         </Link>
 
-        <div className="topbar-search">
-          <span aria-hidden="true">Search</span>
-          <input type="search" placeholder="Search cars..." />
-        </div>
-
+        
         <div className="topbar-actions">
           <button
             type="button"
