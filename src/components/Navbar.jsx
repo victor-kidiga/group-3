@@ -1,27 +1,57 @@
 import { Link, NavLink } from "react-router-dom";
 
+const navItems = [
+  { to: "/", label: "Dashboard", end: true },
+  { to: "/cars", label: "Cars" },
+  { to: "/add-car", label: "Add New Car", adminOnly: true },
+  { to: "/admin", label: "Settings" },
+];
+
 function Navbar({ isAdmin, onAdminLogout, theme, onToggleTheme }) {
   return (
-    <nav className="navbar">
-      <div className="nav-inner">
-        <Link to="/" className="logo" aria-label="MotoGrid home">
-          <img src="/motogrid-logo.png" alt="" className="logo-image" />
-          <span className="logo-text">
-            <strong>MotoGrid</strong>
-            <small>Drive your world</small>
-          </span>
+    <>
+      <aside className="sidebar">
+        <Link to="/" className="brand" aria-label="MotoGrid dashboard">
+          <img src="/motogrid-logo.png" alt="" className="brand-logo" />
         </Link>
 
-        <div className="nav-links" aria-label="Primary navigation">
-          <NavLink to="/" end>
-            Home
-          </NavLink>
-          <NavLink to="/cars">Browse Cars</NavLink>
-          {isAdmin && <NavLink to="/add-car">Add Car</NavLink>}
-          <NavLink to="/admin">{isAdmin ? "Admin Panel" : "Admin Login"}</NavLink>
+        <nav className="side-nav" aria-label="Admin navigation">
+          {navItems.map((item) => {
+            if (item.adminOnly && !isAdmin) return null;
+
+            return (
+              <NavLink key={item.to} to={item.to} end={item.end}>
+                <span className="nav-dot" aria-hidden="true" />
+                {item.label}
+              </NavLink>
+            );
+          })}
+        </nav>
+
+        <div className="sidebar-footer">
+          {isAdmin ? (
+            <button type="button" className="text-button" onClick={onAdminLogout}>
+              Logout
+            </button>
+          ) : (
+            <Link to="/admin" className="text-button">
+              Admin Login
+            </Link>
+          )}
+        </div>
+      </aside>
+
+      <header className="topbar">
+        <Link to="/" className="mobile-brand" aria-label="MotoGrid dashboard">
+          <img src="/motogrid-logo.png" alt="" />
+        </Link>
+
+        <div className="topbar-search">
+          <span aria-hidden="true">Search</span>
+          <input type="search" placeholder="Search cars..." />
         </div>
 
-        <div className="nav-actions">
+        <div className="topbar-actions">
           <button
             type="button"
             className="theme-toggle"
@@ -34,22 +64,13 @@ function Navbar({ isAdmin, onAdminLogout, theme, onToggleTheme }) {
             <span>{theme === "dark" ? "Light" : "Dark"}</span>
           </button>
 
-          {isAdmin ? (
-            <button type="button" className="nav-button ghost" onClick={onAdminLogout}>
-              Logout
-            </button>
-          ) : (
-            <Link to="/admin" className="nav-button ghost">
-              Login
-            </Link>
-          )}
-
-          <Link to={isAdmin ? "/add-car" : "/cars"} className="nav-button primary">
-            {isAdmin ? "Add Car" : "View Cars"}
+          <Link to="/admin" className="admin-chip">
+            <span className="avatar" aria-hidden="true">A</span>
+            <span>{isAdmin ? "Admin" : "Login"}</span>
           </Link>
         </div>
-      </div>
-    </nav>
+      </header>
+    </>
   );
 }
 
