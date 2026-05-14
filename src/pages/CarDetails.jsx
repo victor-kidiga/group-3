@@ -98,7 +98,7 @@ function CarDetails({ isAdmin }) {
             </p>
             <div className="detail-actions">
               {isAdmin && (
-                <Link to={/edit-car/${car.id}} className="buy-action">
+                <Link to={`/edit-car/${car.id}`} className="buy-action">
                   Edit Car
                 </Link>
               )}
@@ -111,20 +111,24 @@ function CarDetails({ isAdmin }) {
               </button>
             </div>
 
-            showContact && (
+            {showContact && (
               <div className="contact-box">
                 <p>Sales phone: {settings.salesPhone}</p>
-                <a href={tel:${settings.salesPhone}}>Call now</a>
-                <a>
-                  href={https://wa.me/${phoneForLink}?text=Hello,%20I%20am%20interested%20in%20the%20${encodeURIComponent(car.name)}}
+                <a href={'tel:${settings.salesPhone}'} target="_blank" rel="noreferrer">
+                  Call now
+                </a>
+                <a
+                  href={`https://wa.me/${phoneForLink}?text=Hello,%20I%20am%20interested%20in%20the%20${encodeURIComponent(car.name)}`}
                   target="_blank"
                   rel="noreferrer"
-                
+                >
                   WhatsApp sales
                 </a>
-                <a/>
-                  href={mailto:${settings.salesEmail}?subject=Buying%20${encodeURIComponent(car.name)}}
-                
+                <a
+                  href={`mailto:${settings.salesEmail}?subject=Buying%20${encodeURIComponent(car.name)}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   Email sales
                 </a>
               </div>
