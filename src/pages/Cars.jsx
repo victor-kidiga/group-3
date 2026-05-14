@@ -150,4 +150,3 @@ function Cars({ isAdmin }) {
 }
 
 export default Cars;
-export default Cars;
