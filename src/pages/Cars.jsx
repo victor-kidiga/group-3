@@ -1,7 +1,13 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
-import { deleteCar as deleteCarRequest, getCars } from "../services/api";
+import { deleteCar, getCars } from "../services/api";
+
+import React, { useState, useEffect } from 'react';
+import { useNavigate} from 'react-router-dom';
+import CarCard from '../components/CarCard';
+import SearchBar from '../components/SearchBar';
+import {getCars,deleteCar} from '../service/api';
 
 function Cars({ isAdmin }) {
   const [cars, setCars] = useState([]);
@@ -47,7 +53,7 @@ function Cars({ isAdmin }) {
     if (!isAdmin) return;
 
     try {
-      await deleteCarRequest(id);
+      await deleteCar(id);
       setCars((currentCars) => currentCars.filter((car) => car.id !== id));
     } catch (error) {
       console.error("Error deleting car:", error);
@@ -118,20 +124,6 @@ function Cars({ isAdmin }) {
                       <button type="button" onClick={() => navigate(`/cars/${car.id}`)}>
                         View
                       </button>
-                      {isAdmin && (
-                        <>
-                          <button type="button" onClick={() => navigate(`/edit-car/${car.id}`)}>
-                            Edit
-                          </button>
-                          <button
-                            type="button"
-                            className="danger-action"
-                            onClick={() => handleDelete(car.id)}
-                          >
-                            Delete
-                          </button>
-                        </>
-                      )}
                     </div>
                   </td>
                 </tr>
@@ -139,17 +131,9 @@ function Cars({ isAdmin }) {
             </tbody>
           </table>
         </div>
-
-        {filteredCars.length === 0 && (
-          <div className="empty-state">
-            <h2>No cars found</h2>
-            <p>Try a different search term or fuel filter.</p>
-          </div>
-        )}
       </section>
     </section>
   );
 }
-
 
 export default Cars;
