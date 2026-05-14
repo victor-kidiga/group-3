@@ -4,7 +4,7 @@
       "id": "1",
       "name": "Toyota Corolla",
       "image": "https://cdn.imagin.studio/getImage?customer=img&make=toyota&modelFamily=corolla&modelYear=2022&angle=23&zoomType=fullscreen&width=900",
-      "price": 2500000,
+      "price": 3500000,
       "modelYear": 2022,
       "description": "A reliable and fuel-efficient sedan perfect for daily commuting and family use.",
       "transmission": "Automatic",
@@ -210,15 +210,15 @@
       "fuelConsumption": "10 km/l"
     },
     {
-      "id": "20",
-      "name": "Isuzu D-Max",
-      "image": "https://cdn.imagin.studio/getImage?customer=img&make=isuzu&modelFamily=d-max&modelYear=2023&angle=23&zoomType=fullscreen&width=900",
-      "price": 4600000,
-      "modelYear": 2023,
-      "description": "A dependable pickup truck with strong towing and cargo capabilities.",
-      "transmission": "Manual",
+      "name": "Toyota Corolla",
+      "price": 3000000,
+      "modelYear": 2019,
       "fuelType": "Diesel",
-      "fuelConsumption": "11 km/l"
+      "transmission": "Manual",
+      "fuelConsumption": "16 km/l",
+      "image": "https://cdn.imagin.studio/getImage?customer=img&make=toyota&modelFamily=corolla&modelYear=2022&angle=23&zoomType=fullscreen&width=900",
+      "description": "basic car",
+      "id": "NF2Oqs7r7Hk"
     }
   ],
   "settings": {
