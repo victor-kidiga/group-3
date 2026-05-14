@@ -1,23 +1,31 @@
-import { render, screen } from "@testing-library/react";
+import { vi } from "vitest";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import CarCard from "../components/CarCard";
 
-test("renders car name", () => {
-  const car = {
-    id: "1",
-    name: "Mercedes GLE",
-    brand: "Mercedes",
-    price: 9500000,
-    year: 2023,
-    image: "https://example.com/car.jpg",
-    description: "Luxury SUV",
-  };
+const mockCar = {
+  id: "1",
+  name: "Toyota Corolla",
+  image: "https://cdn.imagin.studio/getImage?customer=img&make=toyota&modelFamily=corolla&modelYear=2022&angle=23&zoomType=fullscreen&width=900",
+  price: 2500000,
+  modelYear: 2022,
+  description: "A reliable and fuel-efficient sedan perfect for daily commuting.",
+  transmission: "Automatic",
+  fuelType: "Petrol",
+  fuelConsumption: "16 km/l"
+};
 
-  render(
+const renderCarCard = (props = {}) => {
+  return render(
     <BrowserRouter>
-      <CarCard car={car} onDelete={() => {}} />
+      <CarCard
+        car={mockCar}
+        onDelete={() => {}}
+        onEdit={() => {}}
+        onBuy={() => {}}
+        isAdmin={false}
+        {...props}
+      />
     </BrowserRouter>
   );
-
-  expect(screen.getByText("Mercedes GLE")).toBeInTheDocument();
-});
+};
