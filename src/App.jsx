@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
@@ -15,6 +15,14 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(
     () => localStorage.getItem("isAdmin") === "true"
   );
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem("theme") || "dark"
+  );
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   function handleAdminLogin(password) {
     if (password === ADMIN_PASSWORD) {
@@ -31,12 +39,18 @@ function App() {
     setIsAdmin(false);
   }
 
+  function toggleTheme() {
+    setTheme((currentTheme) => (currentTheme === "dark" ? "light" : "dark"));
+  }
+
   return (
     <BrowserRouter>
       <Navbar
         isAdmin={isAdmin}
         onAdminLogin={handleAdminLogin}
         onAdminLogout={handleAdminLogout}
+        theme={theme}
+        onToggleTheme={toggleTheme}
       />
 
       <Routes>

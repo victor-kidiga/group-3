@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate} from 'react-router-dom';
 import CarCard from '../components/CarCard';
 import SearchBar from '../components/SearchBar';
-import {getCars,deleteCar} from '../service/api';
+import { getCars, deleteCar } from '../services/api';
 
 const Cars = ({ isAdmin }) => {
   const [cars, setCars] = useState([]);
@@ -67,8 +67,11 @@ const Cars = ({ isAdmin }) => {
    
 
   return (
-    <div> 
-      <h1>Available Cars</h1>
+    <main className="page-container inventory-page">
+      <header className="page-header">
+        <p>Inventory</p>
+        <h1>Available Cars</h1>
+      </header>
       <SearchBar onSearch={handleSearch} />
       <div className="car-list">
         {filteredCars.map(car => (
@@ -83,7 +86,7 @@ const Cars = ({ isAdmin }) => {
   
         ))}
       </div>
-    </div>
+    </main>
   
  );};
 
