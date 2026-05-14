@@ -12,17 +12,6 @@
       "fuelConsumption": "16 km/l"
     },
     {
-      "id": "2",
-      "name": "Honda Civic",
-      "image": "https://cdn.imagin.studio/getImage?customer=img&make=honda&modelFamily=civic&modelYear=2023&angle=23&zoomType=fullscreen&width=900",
-      "price": 3200000,
-      "modelYear": 2023,
-      "description": "A stylish compact car with advanced technology and smooth driving performance.",
-      "transmission": "Manual",
-      "fuelType": "Petrol",
-      "fuelConsumption": "14 km/l"
-    },
-    {
       "id": "3",
       "name": "Ford Ranger",
       "image": "https://cdn.imagin.studio/getImage?customer=img&make=ford&modelFamily=ranger&modelYear=2021&angle=23&zoomType=fullscreen&width=900",
@@ -208,17 +197,6 @@
       "transmission": "Automatic",
       "fuelType": "Diesel",
       "fuelConsumption": "10 km/l"
-    },
-    {
-      "name": "Toyota Corolla",
-      "price": 3000000,
-      "modelYear": 2019,
-      "fuelType": "Diesel",
-      "transmission": "Manual",
-      "fuelConsumption": "16 km/l",
-      "image": "https://cdn.imagin.studio/getImage?customer=img&make=toyota&modelFamily=corolla&modelYear=2022&angle=23&zoomType=fullscreen&width=900",
-      "description": "basic car",
-      "id": "NF2Oqs7r7Hk"
     }
   ],
   "settings": {
