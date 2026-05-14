@@ -31,13 +31,16 @@ function AddCar() {
 
   return (
     <div className="page-container">
-      <h1>Add New Car</h1>
+      <header className="page-header">
+        <p>Admin</p>
+        <h1>Add New Car</h1>
+      </header>
       <CarForm
-  formData={formData}
-  setFormData={setFormData}
-  handleSubmit={handleSubmit}
-  buttonText="Add Car"
-/>
+        formData={formData}
+        setFormData={setFormData}
+        handleSubmit={handleSubmit}
+        buttonText="Add Car"
+      />
     </div>
   );
 }
