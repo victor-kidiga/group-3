@@ -84,8 +84,7 @@
   z-index: 20;
   min-height: 72px;
   margin-left: 248px;
-  display: grid;
-  grid-template-columns: auto minmax(220px, 420px) auto;
+  display: flex;
   align-items: center;
   gap: 18px;
   border-bottom: 1px solid var(--border);
@@ -136,6 +135,7 @@
   align-items: center;
   justify-content: end;
   gap: 10px;
+  margin-left: auto;
 }
 
 .theme-toggle,
@@ -744,7 +744,8 @@ p {
   .topbar {
     position: static;
     margin-left: 0;
-    grid-template-columns: 1fr;
+    align-items: stretch;
+    flex-direction: column;
   }
 
   .mobile-brand {
@@ -759,6 +760,7 @@ p {
     justify-content: stretch;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin-left: 0;
   }
 
   .workspace {

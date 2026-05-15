@@ -8,6 +8,7 @@ function Cars({ isAdmin }) {
   const [cars, setCars] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [fuelFilter, setFuelFilter] = useState("all");
+  const [deleteError, setDeleteError] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -44,14 +45,20 @@ function Cars({ isAdmin }) {
     });
   }, [cars, fuelFilter, searchTerm]);
 
-  async function handleDelete(id) {
-    if (!isAdmin) return;
+  async function handleDelete(car) {
+    const confirmed = window.confirm(`Delete ${car.name} from the inventory?`);
+
+    if (!confirmed) return;
 
     try {
-      await deleteCarRequest(id);
-      setCars((currentCars) => currentCars.filter((car) => car.id !== id));
+      setDeleteError("");
+      await deleteCarRequest(car.id);
+      setCars((currentCars) =>
+        currentCars.filter((currentCar) => currentCar.id !== car.id)
+      );
     } catch (error) {
       console.error("Error deleting car:", error);
+      setDeleteError("Could not delete this car. Please try again.");
     }
   }
 
@@ -84,6 +91,8 @@ function Cars({ isAdmin }) {
             <option value="Hybrid">Hybrid</option>
           </select>
         </div>
+
+        {deleteError && <p className="form-error">{deleteError}</p>}
 
         <div className="table-wrap">
           <table className="product-table">
@@ -118,6 +127,18 @@ function Cars({ isAdmin }) {
                     <div className="row-actions">
                       <button type="button" onClick={() => navigate(`/cars/${car.id}`)}>
                         View
+                      </button>
+                      {isAdmin && (
+                        <button type="button" onClick={() => navigate(`/edit-car/${car.id}`)}>
+                          Edit
+                        </button>
+                      )}
+                      <button
+                        type="button"
+                        className="danger-action"
+                        onClick={() => handleDelete(car)}
+                      >
+                        Delete
                       </button>
                     </div>
                   </td>
