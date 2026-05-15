@@ -1,27 +1,23 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getCar, getSettings } from "../services/api";
+import { getCar } from "../services/api";
+
+const SALES_CONTACT = {
+  salesPhone: "+254700000000",
+  salesEmail: "sales@motogrid.com",
+};
 
 function CarDetails({ isAdmin }) {
   const { id } = useParams();
   const [car, setCar] = useState(null);
   const [error, setError] = useState("");
   const [showContact, setShowContact] = useState(false);
-  const [settings, setSettings] = useState({
-    salesPhone: "+254700000000",
-    salesEmail: "sales@motogrid.com",
-  });
 
   useEffect(() => {
     async function loadCar() {
       try {
         const carData = await getCar(id);
-        const settingsData = await getSettings();
         setCar(carData);
-        setSettings((currentSettings) => ({
-          ...currentSettings,
-          ...settingsData,
-        }));
       } catch (fetchError) {
         console.error("Error fetching car:", fetchError);
         setError("Car details could not be loaded.");
@@ -50,7 +46,7 @@ function CarDetails({ isAdmin }) {
     );
   }
 
-  const phoneForLink = settings.salesPhone.replace(/\D/g, "");
+  const phoneForLink = SALES_CONTACT.salesPhone.replace(/\D/g, "");
 
   return (
     <div className="car-details-page">
@@ -113,8 +109,8 @@ function CarDetails({ isAdmin }) {
 
             {showContact && (
               <div className="contact-box">
-                <p>Sales phone: {settings.salesPhone}</p>
-                <a href={'tel:${settings.salesPhone}'} target="_blank" rel="noreferrer">
+                <p>Sales phone: {SALES_CONTACT.salesPhone}</p>
+                <a href={`tel:${SALES_CONTACT.salesPhone}`} target="_blank" rel="noreferrer">
                   Call now
                 </a>
                 <a
@@ -125,7 +121,7 @@ function CarDetails({ isAdmin }) {
                   WhatsApp sales
                 </a>
                 <a
-                  href={`mailto:${settings.salesEmail}?subject=Buying%20${encodeURIComponent(car.name)}`}
+                  href={`mailto:${SALES_CONTACT.salesEmail}?subject=Buying%20${encodeURIComponent(car.name)}`}
                   target="_blank"
                   rel="noreferrer"
                 >

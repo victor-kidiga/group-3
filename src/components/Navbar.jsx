@@ -4,7 +4,6 @@ const navItems = [
   { to: "/", label: "Dashboard", end: true },
   { to: "/cars", label: "Cars" },
   { to: "/add-car", label: "Add New Car", adminOnly: true },
-  { to: "/admin", label: "Settings" },
 ];
 
 function Navbar({ isAdmin, onAdminLogout, theme, onToggleTheme }) {
