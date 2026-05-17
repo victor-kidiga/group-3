@@ -38,15 +38,3 @@ export const deleteCar = async(id) => {
   const response = await API.delete(`/cars/${id}`);
   return response.data;
 };
-
-// GET app settings
-export const getSettings = async() => {
-  const response = await API.get("/settings");
-  return response.data;
-};
-
-// UPDATE app settings
-export const updateSettings = async(settingsData) => {
-  const response = await API.patch("/settings", settingsData);
-  return response.data;
-};

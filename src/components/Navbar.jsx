@@ -4,7 +4,6 @@ const navItems = [
   { to: "/", label: "Dashboard", end: true },
   { to: "/cars", label: "Cars" },
   { to: "/add-car", label: "Add New Car", adminOnly: true },
-  { to: "/admin", label: "Settings" },
 ];
 
 function Navbar({ isAdmin, onAdminLogout, theme, onToggleTheme }) {
@@ -46,11 +45,7 @@ function Navbar({ isAdmin, onAdminLogout, theme, onToggleTheme }) {
           <img src="/motogrid-logo.png" alt="" />
         </Link>
 
-        <div className="topbar-search">
-          <span aria-hidden="true">Search</span>
-          <input type="search" placeholder="Search cars..." />
-        </div>
-
+        
         <div className="topbar-actions">
           <button
             type="button"

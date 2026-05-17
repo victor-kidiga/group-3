@@ -36,3 +36,4 @@ const CarCard = ({ car, onDelete, onEdit, onBuy, isAdmin }) => {
 };
 
 export default CarCard;
+
