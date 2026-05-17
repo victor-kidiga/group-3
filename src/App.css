@@ -84,8 +84,7 @@
   z-index: 20;
   min-height: 72px;
   margin-left: 248px;
-  display: grid;
-  grid-template-columns: auto minmax(220px, 420px) auto;
+  display: flex;
   align-items: center;
   gap: 18px;
   border-bottom: 1px solid var(--border);
@@ -136,6 +135,7 @@
   align-items: center;
   justify-content: end;
   gap: 10px;
+  margin-left: auto;
 }
 
 .theme-toggle,
@@ -145,7 +145,6 @@
 .row-actions button,
 .car-form button,
 .admin-login-form button,
-.admin-settings-form button,
 .admin-actions button,
 .buy-action,
 .btn {
@@ -266,7 +265,6 @@ p {
 .primary-btn,
 .car-form button,
 .admin-login-form button,
-.admin-settings-form button,
 .admin-actions button,
 .buy-action {
   border-color: var(--accent);
@@ -404,8 +402,7 @@ p {
 .car-form input,
 .car-form select,
 .car-form textarea,
-.admin-login-form input,
-.admin-settings-form input {
+.admin-login-form input {
   width: 100%;
   min-height: 44px;
   border: 1px solid var(--border);
@@ -512,8 +509,7 @@ p {
 }
 
 .car-form,
-.admin-login-form,
-.admin-settings-form {
+.admin-login-form {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--surface);
@@ -589,8 +585,7 @@ p {
   color: var(--heading);
 }
 
-.admin-login-form,
-.admin-settings-form {
+.admin-login-form {
   display: grid;
   gap: 14px;
   margin-top: 18px;
@@ -744,7 +739,8 @@ p {
   .topbar {
     position: static;
     margin-left: 0;
-    grid-template-columns: 1fr;
+    align-items: stretch;
+    flex-direction: column;
   }
 
   .mobile-brand {
@@ -759,6 +755,7 @@ p {
     justify-content: stretch;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin-left: 0;
   }
 
   .workspace {
@@ -854,7 +851,6 @@ p {
   .welcome-panel,
   .car-form,
   .admin-login-form,
-  .admin-settings-form,
   .car-detail-content,
   .buy-panel,
   .contact-box {
