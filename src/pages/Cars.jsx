@@ -1,12 +1,14 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
-import { deleteCar, getCars } from "../services/api";
+import { deleteCar as deleteCarRequest, getCars } from "../services/api";
+
 
 function Cars({ isAdmin }) {
   const [cars, setCars] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [fuelFilter, setFuelFilter] = useState("all");
+  const [deleteError, setDeleteError] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -41,17 +43,25 @@ function Cars({ isAdmin }) {
 
       return matchesSearch && matchesFuel;
     });
-  }, [cars, searchTerm, fuelFilter]);
-  async function deleteCar(id) {
-    if (!isAdmin) return;
+  }, [cars, fuelFilter, searchTerm]);
+
+  async function handleDelete(car) {
+    const confirmed = window.confirm(`Delete ${car.name} from the inventory?`);
+
+    if (!confirmed) return;
+
     try {
-      await deleteCar(id);
-      setCars((prevCars) => prevCars.filter((car) => car.id !== id));
+      setDeleteError("");
+      await deleteCarRequest(car.id);
+      setCars((currentCars) =>
+        currentCars.filter((currentCar) => currentCar.id !== car.id)
+      );
     } catch (error) {
       console.error("Error deleting car:", error);
+      setDeleteError("Could not delete this car. Please try again.");
     }
-
   }
+
   return (
     <section className="inventory-page">
       <div className="page-title-row">
@@ -81,6 +91,8 @@ function Cars({ isAdmin }) {
             <option value="Hybrid">Hybrid</option>
           </select>
         </div>
+
+        {deleteError && <p className="form-error">{deleteError}</p>}
 
         <div className="table-wrap">
           <table className="product-table">
@@ -117,19 +129,17 @@ function Cars({ isAdmin }) {
                         View
                       </button>
                       {isAdmin && (
-                        <>
-                          <button type="button" onClick={() => navigate(`/edit-car/${car.id}`)}>
-                            Edit
-                          </button>
-                          <button
-                            type="button"
-                            className="danger-action"
-                            onClick={() => handleDelete(car.id)}
-                          >
-                            Delete
-                          </button>
-                        </>
+                        <button type="button" onClick={() => navigate(`/edit-car/${car.id}`)}>
+                          Edit
+                        </button>
                       )}
+                      <button
+                        type="button"
+                        className="danger-action"
+                        onClick={() => handleDelete(car)}
+                      >
+                        Delete
+                      </button>
                     </div>
                   </td>
                 </tr>
@@ -137,17 +147,9 @@ function Cars({ isAdmin }) {
             </tbody>
           </table>
         </div>
-
-        {filteredCars.length === 0 && (
-          <div className="empty-state">
-            <h2>No cars found</h2>
-            <p>Try a different search term or fuel filter.</p>
-          </div>
-        )}
       </section>
     </section>
   );
 }
 
-export default Cars;
 export default Cars;
