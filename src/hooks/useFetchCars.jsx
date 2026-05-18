@@ -12,7 +12,7 @@ function useFetchCars() {
         const data = await getCars();
         setCars(data);
         setLoading(false);
-      } catch (err) {
+      } catch {
         setError("Failed to fetch cars");
         setLoading(false);
       }
