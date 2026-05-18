@@ -1,37 +1,34 @@
-# 🚗 MotoGrid — Car Dealership Admin Portal
+# MotoGrid - Car Dealership Admin Portal
 
-MotoGrid is a React-based e-commerce administrator portal for managing a car dealership inventory. It allows administrators to manage car listings, update pricing, search inventory, and handle product information — all in one place.
+MotoGrid is a React-based e-commerce administrator portal for managing a car
+dealership inventory. It allows administrators to manage car listings, update
+pricing, search inventory, and handle product information in one place.
 
----
+## Preview
 
-## 📸 Preview
+Admin dashboard showing total cars, active listings, premium cars, inventory
+value, a featured car section, and the latest inventory table.
 
-> Admin dashboard showing total cars, active listings, premium cars, and inventory value with a featured car section and latest inventory table.
+## Features
 
----
+- Dashboard overview for total cars, active listings, premium cars, and inventory value
+- Cars listing with search and filter functionality
+- Real-time search by name, description, model year, fuel type, or transmission
+- Add new cars to the inventory
+- Edit car details and pricing
+- Delete cars from inventory
+- Full car details page with specifications and contact options
+- Admin login for protected management features
+- Light and dark theme support
+- Responsive desktop and mobile layout
+- Browser storage fallback for static Vercel deployments
 
-## ✨ Features
-
-- 🏠 **Dashboard** — Overview of total cars, active listings, premium cars and inventory value
-- 🚗 **Cars Listing** — Browse all 20 cars with search and filter functionality
-- 🔍 **Dynamic Search** — Search cars in real time by name or type
-- ➕ **Add Car** — Admin can add new cars to the inventory
-- ✏️ **Edit Car** — Admin can update car details and pricing
-- 🗑️ **Delete Car** — Admin can remove cars from inventory
-- 📄 **Car Details** — Full product page with specifications and contact options
-- 📞 **Contact Sales** — Call, WhatsApp or Email the sales team directly
-- 🔐 **Admin Login** — Secure admin portal with login functionality
-- 🌙 **Light/Dark Mode** — Toggle between light and dark themes
-- 📱 **Responsive Design** — Works on desktop and mobile
-
----
-
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Technology | Purpose |
 |---|---|
 | React 19 | Frontend framework |
-| React Router DOM | Client side routing |
+| React Router DOM | Client-side routing |
 | Vite | Build tool and dev server |
 | JSON Server | Mock REST API backend |
 | Axios | HTTP requests |
@@ -39,29 +36,25 @@ MotoGrid is a React-based e-commerce administrator portal for managing a car dea
 | React Testing Library | Component testing |
 | CSS | Styling and responsive design |
 
----
-
-## 👥 Team — Group 3
+## Team - Group 3
 
 | Person | Role | Files |
 |---|---|---|
-| Person 1 | Project setup + routing | App.jsx, main.jsx, Navbar.jsx, Sidebar.jsx |
+| Person 1 | Project setup and routing | App.jsx, main.jsx, Navbar.jsx, Sidebar.jsx |
 | Person 2 | Home page UI | Home.jsx, FeaturedCar.jsx, App.css |
-| Person 3 | Cars listing + search | Cars.jsx, CarCard.jsx, SearchBar.jsx |
-| Person 4 | Add/Edit car + CRUD | AddCar.jsx, EditCar.jsx, CarForm.jsx, api.js, db.json |
-| Person 5 | State management + testing + docs | CarContext.jsx, useFetchCars.jsx, CarCard.test.jsx, README.md |
+| Person 3 | Cars listing and search | Cars.jsx, CarCard.jsx, SearchBar.jsx |
+| Person 4 | Add/Edit car and CRUD | AddCar.jsx, EditCar.jsx, CarForm.jsx, api.js, db.json |
+| Person 5 | State management, testing, and docs | CarContext.jsx, useFetchCars.jsx, CarCard.test.jsx, README.md |
 
----
-
-## ⚙️ Getting Started
+## Getting Started
 
 ### Prerequisites
-Make sure you have these installed:
-- Node.js (v18 or higher)
-- npm (v9 or higher)
-- Git
 
----
+Make sure you have these installed:
+
+- Node.js v18 or higher
+- npm v9 or higher
+- Git
 
 ### 1. Clone the Repository
 
@@ -76,34 +69,57 @@ cd group-3
 npm install
 ```
 
-### 3. Start JSON Server (Mock Backend)
+### 3. Start JSON Server
 
 Open a new terminal and run:
 
 ```bash
-npx json-server --watch db.json --port 3000
+npm run server
 ```
 
 This starts the mock backend at:
 
-http://localhost:3000/cars
-http://localhost:3000/settings
+```txt
+http://localhost:3001/cars
+http://localhost:3001/settings
+```
 
 ### 4. Start the React App
 
-In another terminal run:
+In another terminal, run:
 
 ```bash
 npm run dev
 ```
 
 Open your browser and go to:
+
+```txt
 http://localhost:5173
+```
 
+## API Configuration
 
----
+The app reads car data from `VITE_API_URL` when that variable is available.
 
-## 🧪 Running Tests
+For local development, the default API URL is:
+
+```txt
+http://localhost:3001
+```
+
+For Vercel, add this environment variable only if you have deployed a real backend:
+
+```txt
+VITE_API_URL=https://your-backend-url
+```
+
+If no production API URL is configured, the deployed app uses the cars bundled in
+`db.json` and stores add/edit/delete changes in the browser's `localStorage`.
+That keeps the Vercel demo from going blank, but those changes are per browser
+and are not shared between users.
+
+## Running Tests
 
 ```bash
 npm run test
@@ -126,63 +142,51 @@ npm run test
 | calls onDelete when Remove button is clicked | Remove button triggers delete |
 | calls onEdit when Edit button is clicked | Edit button triggers edit |
 
----
+## Project Structure
 
-## 📁 Project Structure
-
-
+```txt
 GROUP-3/
 ├── src/
 │   ├── components/
-│   │   ├── CarCard.jsx        # Car display card component
-│   │   ├── CarForm.jsx        # Reusable car form component
-│   │   ├── FeaturedCar.jsx    # Featured car on home page
-│   │   ├── Navbar.jsx         # Top navigation bar
-│   │   ├── SearchBar.jsx      # Search input component
-│   │   └── Sidebar.jsx        # Side navigation menu
-│   │
+│   │   ├── CarCard.jsx
+│   │   ├── CarForm.jsx
+│   │   ├── FeaturedCar.jsx
+│   │   ├── Navbar.jsx
+│   │   ├── SearchBar.jsx
+│   │   └── Sidebar.jsx
 │   ├── context/
-│   │   └── CarContext.jsx     # Global state management
-│   │
+│   │   └── CarContext.jsx
 │   ├── hooks/
-│   │   └── useFetchCars.jsx   # Custom hook for fetching cars
-│   │
+│   │   └── useFetchCars.jsx
 │   ├── pages/
-│   │   ├── AddCar.jsx         # Add new car page
-│   │   ├── AdminLogin.jsx     # Admin login page
-│   │   ├── CarDetails.jsx     # Single car details page
-│   │   ├── Cars.jsx           # All cars listing page
-│   │   ├── EditCar.jsx        # Edit car page
-│   │   └── Home.jsx           # Dashboard home page
-│   │
+│   │   ├── AddCar.jsx
+│   │   ├── AdminLogin.jsx
+│   │   ├── CarDetails.jsx
+│   │   ├── Cars.jsx
+│   │   ├── EditCar.jsx
+│   │   └── Home.jsx
 │   ├── services/
-│   │   └── api.js             # All API calls to JSON Server
-│   │
+│   │   └── api.js
 │   ├── tests/
-│   │   └── CarCard.test.jsx   # CarCard component tests
-│   │
-│   └── setupTests.js          # Testing environment setup
-│
-├── db.json                    # Mock database with 20 cars
-├── vite.config.js             # Vite and Vitest configuration
-└── package.json               # Project dependencies and scripts
+│   │   └── CarCard.test.jsx
+│   └── setupTests.js
+├── db.json
+├── vite.config.js
+└── package.json
+```
 
----
-
-## 📡 API Endpoints
+## API Endpoints
 
 | Method | Endpoint | Description |
 |---|---|---|
 | GET | /cars | Get all cars |
 | GET | /cars/:id | Get one car by ID |
 | POST | /cars | Add a new car |
-| PATCH | /cars/:id | Update a car |
+| PUT | /cars/:id | Update a car |
 | DELETE | /cars/:id | Delete a car |
 | GET | /settings | Get store settings |
 
----
-
-## 🗄️ Data Structure
+## Data Structure
 
 ### Car Object
 
@@ -209,90 +213,67 @@ GROUP-3/
 }
 ```
 
----
-
-## 🔐 Admin Access
+## Admin Access
 
 To access admin features:
-1. Click **Login** in the top navigation
-2. Enter admin credentials
-3. Admin features unlocked:
-   - Add new cars
-   - Edit car details and pricing
-   - Delete cars from inventory
-   - Manage listings
 
----
+1. Click **Login** in the top navigation.
+2. Enter the admin password.
+3. Admin features are unlocked:
 
-## 📜 Available Scripts
+- Add new cars
+- Edit car details and pricing
+- Delete cars from inventory
+- Manage listings
+
+## Available Scripts
 
 | Script | Command | Description |
 |---|---|---|
 | Start dev server | `npm run dev` | Starts React app on port 5173 |
 | Build for production | `npm run build` | Creates production build |
 | Run tests | `npm run test` | Runs all test suites |
-| Start JSON Server | `npx json-server --watch db.json --port 3000` | Starts mock backend |
+| Start JSON Server | `npm run server` | Starts mock backend on port 3001 |
 
----
-
-## 🌐 State Management
+## State Management
 
 The app uses React Context API for global state management:
 
-- **CarContext** — Provides cars data to all components
-- **useFetchCars** — Custom hook for fetching cars from the API
-- **useCarContext** — Custom hook to access context from any component
+- `CarContext` provides car data to components.
+- `useFetchCars` fetches cars from the API.
+- Components can access shared car data without prop drilling.
 
-### How It Works
-db.json (20 cars)
-↓
-useFetchCars fetches cars from API
-↓
-CarContext stores and shares cars globally
-↓
-All components access cars directly
-├── Home.jsx — shows featured cars
-├── Cars.jsx — shows all cars
-├── AddCar.jsx — adds new car
-├── EditCar.jsx — updates car
-└── CarCard.jsx — displays each car
-
----
-
-## 🧠 Key Technical Decisions
+## Key Technical Decisions
 
 ### Why React Context?
-Avoids prop drilling — all components access car data directly without passing props through multiple layers.
+
+It avoids prop drilling, so components can access car data without passing props
+through several layers.
 
 ### Why JSON Server?
-Provides a full REST API without a real backend — perfect for development and demonstration.
+
+It provides a full REST API without a real backend, which is useful for
+development and demonstration.
+
+### Why the Vercel fallback?
+
+Vercel hosts the React frontend, but it does not automatically run the local
+JSON Server. The fallback prevents the deployed app from showing a blank cars
+section when no production API is configured.
 
 ### Why Vitest?
-Since the project uses Vite, Vitest integrates seamlessly and runs faster than Jest in this environment.
 
-### Why Custom Hooks?
-Encapsulates reusable logic — any component can fetch cars with one line instead of repeating fetch logic everywhere.
+Since the project uses Vite, Vitest integrates cleanly and runs quickly.
 
-### Why try/catch in async functions?
-Network requests can fail. try/catch ensures the app shows a friendly error message instead of crashing when the server is unavailable.
+## Links
 
----
+- GitHub Repository: https://github.com/victor-kidiga/group-3
+- JSON Server Docs: https://github.com/typicode/json-server
+- React Docs: https://react.dev
+- Vitest Docs: https://vitest.dev
+- React Testing Library: https://testing-library.com
 
-## 🔗 Links
+## License
 
-- **GitHub Repository:** https://github.com/victor-kidiga/group-3
-- **JSON Server Docs:** https://github.com/typicode/json-server
-- **React Docs:** https://react.dev
-- **Vitest Docs:** https://vitest.dev
-- **React Testing Library:** https://testing-library.com
-
----
-
-## 📝 License
-
-This project was built as a summative lab project for Moringa School — Phase 3 Module 3.
-
----
-
-*Built with ❤️ by Group 3 — Moringa School*
-
+This project was built as a summative lab project for Moringa School - Phase 3
+Module 3.
