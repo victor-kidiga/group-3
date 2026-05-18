@@ -1,4 +1,4 @@
-import { vi } from "vitest";
+import { expect, test, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import CarCard from "../components/CarCard";

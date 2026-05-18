@@ -10,11 +10,10 @@ export function CarProvider({ children }) {
 
   async function fetchCars() {
     try {
-      setLoading(true);
       const data = await getCars();
       setCars(data);
       setLoading(false);
-    } catch (err) {
+    } catch {
       setError("Failed to load cars");
       setLoading(false);
     }
@@ -35,7 +34,18 @@ export function CarProvider({ children }) {
   }
 
   useEffect(() => {
-    fetchCars();
+    async function loadInitialCars() {
+      try {
+        const data = await getCars();
+        setCars(data);
+        setLoading(false);
+      } catch {
+        setError("Failed to load cars");
+        setLoading(false);
+      }
+    }
+
+    loadInitialCars();
   }, []);
 
   return (
@@ -45,6 +55,7 @@ export function CarProvider({ children }) {
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useCarContext() {
   return useContext(CarContext);
 }
