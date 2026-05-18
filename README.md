@@ -44,7 +44,7 @@ value, a featured car section, and the latest inventory table.
 | Person 2 | Home page UI | Home.jsx, FeaturedCar.jsx, App.css |
 | Person 3 | Cars listing and search | Cars.jsx, CarCard.jsx, SearchBar.jsx |
 | Person 4 | Add/Edit car and CRUD | AddCar.jsx, EditCar.jsx, CarForm.jsx, api.js, db.json |
-| Person 5 | State management, testing, and docs | CarContext.jsx, useFetchCars.jsx, CarCard.test.jsx, README.md |
+| Person 5 | State management, testing, and docs | CarContext.jsx, useFetchCars.jsx, CarCard.test.jsx,CarDetails.jsx, README.md |
 
 ## Getting Started
 
