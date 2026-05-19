@@ -110,7 +110,7 @@ function CarDetails({ isAdmin }) {
             {showContact && (
               <div className="contact-box">
                 <p>Sales phone: {SALES_CONTACT.salesPhone}</p>
-                <a href={`tel:${SALES_CONTACT.salesPhone}`} target="_blank" rel="noreferrer">
+                <a href={`tel:${settings.salesPhone}`} target="_blank" rel="noreferrer">
                   Call now
                 </a>
                 <a
